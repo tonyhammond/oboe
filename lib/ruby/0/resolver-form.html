@@ -1,0 +1,41 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Resolver</title>
+</head>
+<body>
+<h1>
+Oboe/Ruby - <i>OpenURL Resolver</i></h1>
+<hr>
+<br>
+<form action="resolver.cgi" method="POST">
+Enter an OpenURL <a href="property_list.html"><b>property list</b></a> to resolve
+(or just press "Resolve" for a random sample):<p>
+<!--
+<input type="text" name="OpenURL" value="adm_ver=1&ctx_ptr=uri:http://localhost/oboe/lib/ruby/samples/ex-0.txt&srv_id=_ri:oboe:to_excel" size="144">
+-->
+<textarea name="OpenURL" rows=10 cols=80>
+adm_ver = Z39.00-00
+ref_id = 
+</textarea>
+<p>
+<input type="submit" value="Resolve">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="reset" value="Reset">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_key" checked>Property List
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_excel">Excel Spreadsheet
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_xml">XML
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_rdf">RDF
+</form>
+<hr>
+<p>
+You can modify the resolution result by adding a service
+<a href="directives.html"><b>directive</b></a>
+to the OpenURL.
+See <a href="features.html"><b>features</b></a> for listing of feature set.
+</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<yads>
+<!--
+# OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = 1
+
+# Context-Object
+
+  # Referent
+  ref_val = 
+  ref_val_fmt = ori:schema:book
+
+  # Referring-entity
+  rfe_id = uri:urn:ISBN:0262531283
+-->
+  <nest>
+    <!-- OpenURL -->
+    <resource/>
+    <collection>
+  <nest>
+    <!-- Profile -->
+    <property type="directive">oboe:</property>
+    <resource>http://www2.elsevier.co.uk/~tony/oboe.rdf</resource>
+    <collection>
+      <item>
+        <!-- Administration -->
+        <property type="type">oboe:administration</property>
+        <collection>
+          <item>
+            <!-- Version -->
+            <property type="type">oboe:version</property>
+            <data>1</data>
+          </item>
+        </collection>
+      </item>
+      <item>
+        <!-- Context-Object -->
+        <property type="type">oboe:context-object</property>
+        <collection>
+          <item>
+            <!-- Referent -->
+            <property type="type">oboe:referent</property>
+            <collection>
+              <item>
+                <!-- Metadata-by-val -->
+                <property type="type">oboe:metadata-by-val</property>
+                <collection>
+                </collection>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Referring-entity -->
+            <property type="type">oboe:referring-entity</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>uri:urn:ISBN:0262531283</data>
+              </item>
+            </collection>
+          </item>
+        </collection>
+      </item>
+    </collection>
+  </nest>
+    </collection>
+  </nest>
+</yads>

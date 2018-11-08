@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  YADS - OpenURL Example 1c (see ex-1.xml for example case)
+
+  ==
+
+  a) Unencoded OpenURL (ignore whitespace):
+  
+  http://openurl.org/resolver?
+    & ref_id = doi:10.1045/july99-caplan
+    & rfr_id = dns:dlib.org
+    & rfe_id = doi:10.1045/march2001-vandesompel
+
+-->
+<yads>
+<nest>
+<!-- OpenURL Resolver + Query -->
+<resource>http://openurl.org/resolver?</resource>
+<collection>
+<item>
+<!-- Referent -->
+<resource>doi:10.1045/july99-caplan</resource>
+<property type="type">ref_id</property>
+</item>
+<item>
+<!-- Referer -->
+<data>dns:dlib.org</data>
+<property type="type">rfr_id</property>
+</item>
+<item>
+<!-- Referring-Entity -->
+<resource>doi:10.1045/march2001-vandesompel</resource>
+<property type="type">rfe_id</property>
+</item>
+</collection>
+<property type="type">OpenURL</property>
+</nest>
+</yads>

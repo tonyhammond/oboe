@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<yads>
+<!--
+#  OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = Z39.00-00
+
+# ContextObject
+
+  ref_valfmt = jarticle
+  date = 2002-02
+  stitle = Appl Environ Microbiol
+  issue = 2
+  volume = 68
+  aulast = Sturino
+  rfr_id = ori:dbid:ncbi.nlm.nih.gov:pubmed
+  rfe_id = ori:pmid:11823195
+  req_id = uri:mailto:joe.doe@greatjob.org
+-->
+  <nest>
+    <!-- OpenURL -->
+    <resource/>
+    <collection>
+  <nest>
+    <!-- Profile -->
+    <property type="directive">oboe:</property>
+    <collection>
+      <item>
+        <!-- Administration -->
+        <property type="type">oboe:administration</property>
+        <collection>
+          <item>
+            <!-- Version -->
+            <property type="type">oboe:version</property>
+            <data>Z39.00-00</data>
+          </item>
+        </collection>
+      </item>
+      <item>
+        <!-- ContextObject -->
+        <property type="type">oboe:context-object</property>
+        <collection>
+          <item>
+            <!-- Referent -->
+            <property type="type">oboe:referent</property>
+            <collection>
+              <item>
+                <!-- Metadata -->
+                <property type="type">oboe:metadata</property>
+                <collection>
+                  <item>
+                    <property type="type">oboe:schema:jarticle:date</property>
+                    <data>2002-02</data>
+                  </item>
+                  <item>
+                    <property type="type">oboe:schema:jarticle:stitle</property>
+                    <data>Appl Environ Microbiol</data>
+                  </item>
+                  <item>
+                    <property type="type">oboe:schema:jarticle:issue</property>
+                    <data>2</data>
+                  </item>
+                  <item>
+                    <property type="type">oboe:schema:jarticle:volume</property>
+                    <data>68</data>
+                  </item>
+                  <item>
+                    <property type="type">oboe:schema:jarticle:aulast</property>
+                    <data>Sturino</data>
+                  </item>
+                </collection>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Referrer -->
+            <property type="type">oboe:referrer</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>ori:dbid:ncbi.nlm.nih.gov:pubmed</data>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Referring-entity -->
+            <property type="type">oboe:referring-entity</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>ori:pmid:11823195</data>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Requester -->
+            <property type="type">oboe:requester</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>uri:mailto:joe.doe@greatjob.org</data>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Service-type -->
+            <property type="type">oboe:service-type</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>_ri:oboe:no_strict</data>
+              </item>
+            </collection>
+          </item>
+        </collection>
+      </item>
+    </collection>
+    <resource>http://www2.elsevier.co.uk/~tony/oboe.rdf</resource>
+  </nest>
+    </collection>
+  </nest>
+</yads>

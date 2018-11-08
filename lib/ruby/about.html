@@ -1,0 +1,35 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: About Resolver</title>
+</head>
+<body>
+<h1><i>Oboe</i> ~ About This Resolver</h1>
+<hr>
+<p>
+<h3>Summary</h3>
+This OpenURL resolver parses, validates and services an OpenURL.
+<p>
+<h3>Parsing</h3>
+OpenURL parameters are read in batch mode from a querystring or data post.
+In user mode parameters are read from the web form. Remote parameters can
+be fetched over the network
+from a property list using a <b>context-pointer</b>.
+<p>
+<h3>Validation</h3>
+The validation process includes checks on the <b>administration</b> version,
+the presence of a <b>referent</b> entity descriptor, legal <b>identifier</b> namespace
+ IDs and schemes, and legal <b>metadata</b> format identifiers and keywords. A
+more complete summary of checks is listed under <a href="features.html"><b>features</b></a>.
+<p>
+<h3>Services</h3>
+The default service of this resolver is to render this OpenURL as a property list. Other
+renditions (Excel, Querystring, RDF, XML) can also be selected.
+<p>
+Further services are available through the use of service directives
+which are implemented by using <b>identifiers</b> of <b>service-type</b>.
+Examples include: (no)strict, (no)validate, (no)refs, trace, forward (to another service component). 
+See <a href="directives.html"><b>directives</b></a> for a fuller listing.
+</body>
+
+</html>

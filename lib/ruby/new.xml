@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<context-container xmlns="http://www.niso.org/context-object" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.niso.org/context-object
+  http://lib-www.lanl.gov/~herbertv/niso/context-container.xsd" 
+  version="1.0">
+
+  <context-object>
+  <!--
+# OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = Z39.00-00
+
+# Context-Object
+
+  # Referent
+  ref_id = uri:urn:ISSN:1090-3801
+  ref_id = _ri:14587033
+  ref_val = *
+  ref_val_fmt = ori:schema:journal
+  stitle = Eur J Pain
+  ref_ptr = uri:http://an.erl.edu/query/erl.cgi?usr=generic&pwd=letmein&dbase=ULR03&acc=14587033
+  ref_ptr_fmt = uri:http:ULRICH
+
+  # Referrer
+  rfr_id = _ri:ERL:ULRICHD
+
+  # Requester
+  req_ptr = uri:ldap://an.ldap.edu/cn=joe doe
+  req_ptr_fmt = uri:http:ULRICH
+
+-->
+<referent>
+<identifier namespace-id="uri">urn:ISSN:1090-3801</identifier>
+<identifier namespace-id="_ri">14587033</identifier>
+<metadata-by-val>
+<format namespace-id="ori">schema:journal</format>
+<m:journal xmlns:m="http://lib-www.lanl.gov/~herbertv/niso/journal"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://lib-www.lanl.gov/~herbertv/niso/journal">
+<m:stitle>Eur J Pain</m:stitle>
+</m:journal>
+</metadata-by-val>
+<metadata-by-ref>
+<format namespace-id="uri">http:ULRICH</format>
+<location namespace-id="uri">http://an.erl.edu/query/erl.cgi?usr=generic&amp;pwd=letmein&amp;dbase=ULR03&amp;acc=14587033</location>
+</metadata-by-ref>
+</referent>
+<referrer>
+<identifier namespace-id="_ri">ERL:ULRICHD</identifier>
+</referrer>
+<requester>
+<metadata-by-ref>
+<format namespace-id="uri">http:ULRICH</format>
+<location namespace-id="uri">ldap://an.ldap.edu/cn=joe doe</location>
+</metadata-by-ref>
+</requester>
+<service-type>
+</service-type>
+</context-object>
+</context-container>

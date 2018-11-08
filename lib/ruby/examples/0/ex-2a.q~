@@ -1,0 +1,8 @@
+# Example 2a
+ 
+  ref_id = _ri:ASIN-1861004516
+  req_id = _ri:104-0011434-4639158
+  rfr_id = _ri:booksales
+  srv_id = _ri:addToCart
+
+  adm_ver = Z39.00-00

@@ -1,0 +1,30 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe</title>
+</head>
+<body>
+<h1>
+Oboe/Perl - <i>Simple Resolver</i></h1>
+<hr>
+Below is a complete example of a simple resolver in Perl. The <code>to_xml</code>
+method returns an <code>OpenURL</code> object as  an XML document.
+<hr>
+<pre>
+#!/usr/local/bin/perl
+
+  use CGI;
+  use Oboe;
+
+  $cgi = CGI.new; @nams = $cgi->parse;
+
+  for (@nams) {
+    @vals = $cgi->param($_);
+    $args{$_} = [ @vals ];
+  }
+  print "content-type: application/xml\n\n";
+  print Oboe::OpenURL->new(\%args)->to_xml;
+</pre>
+<hr>
+</body>
+</html>

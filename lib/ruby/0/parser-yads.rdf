@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF xmlns:isa="doi:1014/yads-schema-2002-04-03#" xmlns:has="doi:1014/yads-schema-2002-04-03#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about="">
+<!--
+#  OpenURL v.1.0 Parameters:
+
+   adm_ver = Z39.00-00
+   aufirst = priscilla
+   aulast = caplan
+   issn = 10829873
+   issue = 7/8
+   ref_id = ori:doi:10.1045/july99-caplan
+   ref_valfmt = jarticle
+   rfe_id = ori:doi:10.1045/march2001-vandesompel
+   rfr_id = ori:dbid:dlib.org:D-Lib Magazine
+   title = Reference Linking for Journal Articles
+   volume = 5
+-->
+<rdf:type>isa:Nest</rdf:type>
+<has:resource rdf:resource=""/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:referent</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:identifier</has:type>
+<has:resource rdf:resource="data:,ori:doi:10.1045/july99-caplan"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:metadata</has:type>
+<has:directive>oboe:jarticle</has:directive>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:title</has:type>
+<has:resource rdf:resource="data:,Reference%20Linking%20for%20Journal%20Articles"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:issn</has:type>
+<has:resource rdf:resource="data:,10829873"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:issue</has:type>
+<has:resource rdf:resource="data:,7/8"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:volume</has:type>
+<has:resource rdf:resource="data:,5"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:aulast</has:type>
+<has:resource rdf:resource="data:,caplan"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:aufirst</has:type>
+<has:resource rdf:resource="data:,priscilla"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:referrer</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:identifier</has:type>
+<has:resource rdf:resource="data:,ori:dbid:dlib.org:D-Lib%20Magazine"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:referring-entity</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:identifier</has:type>
+<has:resource rdf:resource="data:,ori:doi:10.1045/march2001-vandesompel"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:Description>
+</rdf:RDF>

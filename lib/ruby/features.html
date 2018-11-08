@@ -1,0 +1,60 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Resolver Features</title>
+</head>
+<body>
+<h1><i>Oboe</i> ~ Resolver Features</h1>
+<hr>
+<p>
+This OpenURL validating resolver has the following features:
+<p>
+<table width=100% cellpadding=3>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Context Import</b></td>
+<td width=80%>&nbsp;&nbsp;URL querystring; property list fetched from a <b>context-object</b> URL reference</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Context Export</b></td>
+<td width=80%>&nbsp;&nbsp;Property list; Excel spreadsheet; URL querystring ; RDF description ; XML document</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Validation</b></td>
+<td width=80%>&nbsp;&nbsp;Validation includes:<p>
+&nbsp;&nbsp; - Check for <b>admin version</b> and for legal <b>version</b> string<br>
+&nbsp;&nbsp; - Check for legal <b>admin char_set</b> value if present<br>
+&nbsp;&nbsp; - Import <b>context-object</b> from property list encoding<br>
+&nbsp;&nbsp; - Check for <b>referent</b> entity<br>
+&nbsp;&nbsp; - Check for legal <b>identifier</b> namespace IDs<br>
+&nbsp;&nbsp; - Check for <b>referrer</b> entity if foreign namespace ID used<br>
+&nbsp;&nbsp; - Check for legal <b>identifier</b> schemes<br>
+&nbsp;&nbsp; - Check for well-formedness of <b>uri</b> identifiers<br>
+&nbsp;&nbsp; - Check for legal <b>metadata</b> format identifiers<br>
+&nbsp;&nbsp; - Check for legal <b>metadata</b> format identifier terms<br>
+&nbsp;&nbsp; - Check on <b>entity</b> cardinalities - only one of each type allowed<br>
+&nbsp;&nbsp; - Check on <b>descriptor</b> cardinalities - only one of each type allowed unless <b>identifier</b><br>
+&nbsp;&nbsp; - Check on restriction of <b>metadata</b> descriptor type to qualify <b>referent</b> entity only<br>
+<br>
+&nbsp;&nbsp; Still to do:<p>
+&nbsp;&nbsp; - Import <b>context-object</b> from XML encoding<br>
+</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Help &amp; Hints</b></td>
+<td width=80%>&nbsp;&nbsp;Help and hints are given on validation error pages</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Example Contexts</b></td>
+<td width=80%>&nbsp;&nbsp;EBNF example contexts are bundled and randomly selected from if no context is presented</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Directives</b></td>
+<td width=80%>&nbsp;&nbsp;Service <a href="directives.html"><b>directives</b></a> include control of validation process and rendering options</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Legacy Support</b></td>
+<td width=80%>&nbsp;&nbsp;Support v.0.1 by upgrading to v.1.0 (work in progress)</td>
+</tr>
+</table>
+</body>
+</html>

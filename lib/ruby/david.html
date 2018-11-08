@@ -1,0 +1,123 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Linking &amp; Structures</title>
+</head>
+<body>
+<h1>Linking &amp; Structures</h1>
+<hr>
+<p>
+Main focus of this activity is on the open description technologies which are 
+paving the way to the dawn of the semantic web, and especially on the two big guns in the publishing industry's arsenal: DOI and OpenURL. This activity
+is also engaged with
+CrossRef and presently working with them on a parameter passing demo and
+about to start a DOI prototype for extended services.
+<p>
+The recurring motifs below are frameworks, services and multiples.
+<p>
+<h3>DOI</h3>
+With DOI we have a public identifier and are chiefly concerned with the
+ disclosure of information. Currently DOI is resolved to a single resolution
+ target. For ES this is the I-Hub which can dispatch 
+to any platform that it has holdings info for. But DOI has a much 
+greater promise: multiple resolution. 
+DOI uses Handle as its resolution 
+technology which provides a secure name resolution service for the Internet 
+and resolves a given Handle to mutiple items
+of typed data. 
+<p>
+So, in effect one DOI can have multiple targets and multiple application profiles.
+Question is: How do we properly harness this power for DOI? Cue YADS.
+<p>
+<h3>YADS - A Description Service</h3>
+This is a recursive data model elaborated over the past 18 months for 
+describing resource collections. See:<p>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://hdl.handle.net/1014/yads">http://hdl.handle.net/1014/yads</a>
+<p>
+The model is a simple RDF profile (with 2 classes and 7 properties) and aims to be safe and
+predictable to implement. It is already entrenched in the new CrossRef schema
+for the data payload section. One notable feature of this model is the late binding
+of types, or semantic indirection. This means that a YADS description
+can carry many other descriptions: CrossRef, OpenURL, XLink, etc.
+A YADS description is not just a packaging mechanism but can be bootstrapped
+into a services environment. Any resource hierarchy can be blessed into an
+application profile class to 
+give an instance of an application profile: schema + services + data.
+<p>
+<h3>OpenURL</h3>
+Currently NISO Committee AX is working towards a standardization of the OpenURL. Unlike the existing deployed version (v.0.1) which is hardwired for dealing with basic scholarly publishing genres, the new standard-to-be (v.1.0) provides a totally generic framework for building contextual links.
+An OpenURL results when a context-object is sent to a resolver. A context-object
+is a basket of (up to) 6 entities which are described by (up to) 4 descriptor
+types which can occur multiply. 
+The table below lists the entity/descriptor matrix.
+<p>
+<table width=80% cellpadding=3>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b></b></td>
+<td width=20%>&nbsp;&nbsp;<b>Entities</b></td>
+<td width=20%>&nbsp;&nbsp;<b>Key Prefix</td>
+<td width=20%>&nbsp;&nbsp;<b>Descriptors</b></td>
+<td width=20%>&nbsp;&nbsp;<b>Key Suffix</b></td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>what?</i></td>
+<td width=20%>&nbsp;&nbsp;referent</td>
+<td width=20%>&nbsp;&nbsp;ref</td>
+<td width=20%>&nbsp;&nbsp;identifier</td>
+<td width=20%>&nbsp;&nbsp;id</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>whence?</i></td>
+<td width=20%>&nbsp;&nbsp;referrer</td>
+<td width=20%>&nbsp;&nbsp;rfr</td>
+<td width=20%>&nbsp;&nbsp;metadata-by-val</td>
+<td width=20%>&nbsp;&nbsp;val</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>where?</i></td>
+<td width=20%>&nbsp;&nbsp;referring-entity</td>
+<td width=20%>&nbsp;&nbsp;rfe</td>
+<td width=20%>&nbsp;&nbsp;metadata-by-ref</td>
+<td width=20%>&nbsp;&nbsp;ptr</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>who?</i></td>
+<td width=20%>&nbsp;&nbsp;requester</td>
+<td width=20%>&nbsp;&nbsp;req</td>
+<td width=20%>&nbsp;&nbsp;private-data</td>
+<td width=20%>&nbsp;&nbsp;dat</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>which?</i></td>
+<td width=20%>&nbsp;&nbsp;resolver</td>
+<td width=20%>&nbsp;&nbsp;res</td>
+<td width=20%>&nbsp;&nbsp;<b>Format</b></td>
+<td width=20%>&nbsp;&nbsp;<b>Key Suffix</b></td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>how?</i></td>
+<td width=20%>&nbsp;&nbsp;service-type</td>
+<td width=20%>&nbsp;&nbsp;srv</td>
+<td width=20%>&nbsp;&nbsp;format</td>
+<td width=20%>&nbsp;&nbsp;fmt</td>
+</tr>
+</tr>
+</table>
+<p>
+Resource identifiers belong to 3 different
+namespaces: uniform (URI), OpenURL, or foreign.
+<p>
+<h3>Oboe</h3>
+To kickstart the general adoption of OpenURL an open source set of libraries
+is proposed: Oboe - OpenURL Based Open Environment. An early binding has
+been made for the language Ruby facilitating the development of tools. For
+an instance of a validating resolver for OpenURL see:
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://hdl.handle.net/1014/oboe">http://hdl.handle.net/1014/oboe</a>
+<p>
+Other bindings to Java, Perl and Python should be possible. (Some of the code
+base is already ported to Java and Perl.) Each language would make use of
+a common registry implemented as a regular properties file.
+</body>
+
+</html>

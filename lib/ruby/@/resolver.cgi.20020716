@@ -1,0 +1,193 @@
+#!c:/cygwin/usr/local/bin/ruby
+
+  require 'cgi'
+  require 'oboe'; require 'oboe/samples'
+
+  include Oboe
+
+  cgi = CGI.new; args = cgi.params
+
+  # Service directive flags
+  no_validate_directive = false
+  no_refs_directive = false
+  no_strict_directive = false
+  trace = false
+  forward = false
+
+  # print "content-type: text/html\n\n"
+
+  # Default output method is XML for non-interative use
+  # The interactive form will reset this to a property list
+  output = 'to_s'
+
+  def print_form
+  
+    print <<-"EOT"
+content-type: text/html
+
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Resolver</title>
+</head>
+<body>
+<h1>
+Oboe/Ruby - <i>OpenURL Resolver</i></h1>
+<hr>
+<br>
+<form action="resolver.cgi" method="POST">
+Enter an OpenURL <a href="property_list.html"><b>property list</b></a> to resolve
+or just refresh the page for a new random example:<p>
+(A one-page <a href="tutorial.html"><b>tutorial</b></a> is available,
+as well as <a href="examples.html"><b>example contexts</b></a>,
+but check <a href="issues.html"><b>open issues</b></a> first.)
+<p>
+<textarea name="OpenURL" rows=15 cols=80>
+#{Samples.new.querystring}
+</textarea>
+<p>
+<input name="resolve" type="submit" value="Resolve">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="reset" value="Reset">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_s" checked>Property List
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_excel">Excel
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_rdf">RDF
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_svg">SVG
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="srv_id" value=":oboe:to_xml">XML
+</form>
+<hr>
+<p>
+You can modify the resolution result by adding a service
+<a href="directives.html"><b>directive</b></a> to the OpenURL.
+See <a href="features.html"><b>features</b></a> for listing of feature set.
+</body>
+</html>
+EOT
+
+  end
+
+  # If form requested then print one with a random sample
+  if args.has_key?('print_form')
+    print_form(); exit
+  end
+
+  if args.has_key?('OpenURL')
+    output = 'to_s'
+    output = "#{args['srv_id']}".sub(/:oboe:/, "")
+    form_args = args['OpenURL'].join("\n")
+    form_args += "\n"
+    form_args += "srv_id=_ri:oboe:no_strict\n"
+#    form_args += "srv_id=_ri:oboe:trace\n"
+    args = Registry.read_properties(form_args)
+  end
+
+# print "<pre>\n"
+  o = OpenURL.new(args)
+# print "</pre>\n"
+  # Process any service directives
+  if o.get_context.get_directives('oboe')
+    o.get_context.get_directives('oboe').each do |directive|
+      case directive
+        when /oboe:to_s/ then output = 'to_s'
+        when /oboe:to_xml/ then output = 'to_xml'
+        when /oboe:to_rdf/ then output = 'to_rdf'
+        when /oboe:to_yads/ then output = 'to_yads'
+        when /oboe:to_excel/ then output = 'to_excel'
+        when /oboe:no_validate/ then no_validate_directive = true
+        when /oboe:no_refs/ then no_refs_directive = true
+        when /oboe:no_strict/ then no_strict_directive = true
+        when /oboe:trace/ then trace = true
+        when /oboe:forward/ then forward = true
+      end
+    end
+  end
+
+  # print "content-type: text/plain\n\n" if trace
+
+  begin
+
+    o.validate unless no_validate_directive
+
+    if forward
+      print "content-type: application/xml\n\n"
+      # print "content-type: text/html\n\n"
+      print o.post
+    elsif output == 'to_s'
+      print "content-type: text/html\n\n"
+      print <<-EOT
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Resolver Result</title>
+</head>
+<body>
+<h1>
+Oboe/Ruby - <i>OpenURL Resolver Result</i></h1>
+<hr>
+<br>
+<pre>
+#{o.to_s}
+</pre>
+</body>
+</html>
+EOT
+    elsif output == 'to_excel'
+      print "content-type: application/vnd.ms-excel\n\n"
+      print o.to_excel
+    elsif output == 'to_xml'
+      print "content-type: text/xml\n\n"
+      print o.to_xml
+    elsif output == 'to_yads'
+      print "content-type: text/xml\n\n"
+      print o.to_yads
+    elsif output == 'to_rdf'
+      print "content-type: text/xml\n\n"
+      print o.to_rdf
+    elsif output == 'to_svg'
+      print "content-type: text/xml\n\n"
+      tmp_file = "/tmp/oboe.xml"
+      tmp = File.open(tmp_file "w")
+      # tmp.print o.to_yads
+      # system("xalan -xsl ../../../../xsl/yads2dot.xsl -in #{tmp_file} | dot -Tsvg"
+    end
+  rescue
+      param = o.to_s; a = []
+      error = $!.to_s
+      if error =~ /: \"([a-z]+_\w+)\"\)/
+        key = $1
+        param.split(/\n/).each do |line|
+          if line =~ /#{key}/
+            line = "<b>#{line}</b>"
+          end
+          a << line
+        end
+        param = a.join("\n")
+      end
+      print "content-type: text/html\n\n"
+      print <<-"EOT"
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Resolver Error</title>
+</head>
+<body>
+<h1>
+Oboe/Ruby - <i>OpenURL Resolver Error</i></h1>
+<hr>
+<br>
+<b>#{$!}</b>
+<pre>
+#{param}
+</pre>
+</body>
+</html>
+EOT
+     
+  end
+
+__END__

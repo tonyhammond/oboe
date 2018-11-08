@@ -1,0 +1,46 @@
+=begin
+a. read those tags that are explicitly defined in the EBNF
+b. pick ref_valftm (if exists)
+c. read all tags that conform to the format defined by the value of ref_valfmt
+d. ignore the remaining tags (from OpenURL perspective)
+
+1. check existence of adm_ver and value thereof in HTTP GET/POST URL
+=> if adm_ver exists AND value is one of the 2 legitimate ones (there is one
+value for name=value encoding -- say z39.00-1 -- and one for XML encoding -- say
+z39.00-2 -- of context-object) then go to 2
+=> if adm_ver does not exists OR value is not one of the 2 legitimate ones  then
+STOP: this is not an (embedded) OpenURL
+
+2. check existence ctx_ptr in HTTP GET/POST URL
+=> if ctx_ptr does not exists AND  if adm_ver=z39.00-1 go to 3
+=> if ctx_ptr does exists AND  if adm_ver=z39.00-1 go to 4
+=> if ctx_ptr does not exists AND  if adm_ver=z39.00-2 go to 6
+=> if ctx_ptr does exists AND  if adm_ver=z39.00-2 go to 5
+
+3. this is name=value encoding of context-object by-value
+3.a. read those tags from in HTTP GET/POST URL that are explicitly defined in
+Part 2 of the EBNF
+3.b. pick ref_valftm (if exists)
+3.c. read all tags that conform to the format defined by the value of ref_valfmt
+
+3.d. ignore the remaining tags on HTTP GET/POST URL (from OpenURL perspective)
+3.e. STOP. all OpenURL-info is now available.
+
+4. this is name=value encoding of context-object by-reference
+4.a. resolve value of ctx_ptr (i.e. fetch name=value encoding)
+4.b. read those tags from fetched encoding that are explicitly defined in Part 2
+of the EBNF
+4.c. pick ref_valftm (if exists)
+4.d. read all tags from fetched encoding that conform to the format defined by
+the value of ref_valfmt
+4.e. ignore the remaining tags from fetched encoding (from OpenURL perspective)
+4.f. STOP.  all OpenURL-info is now available.
+
+5. this is XML encoding of context-object by-ref
+5.a. ignore all remaining tags on HTTP GET/POST URL  (from OpenURL perspective)
+5.b. resolve value of ctx_ptr (i.e. fetch XML encoding)
+5.c. STOP.  all OpenURL-info is now available.
+
+6.  this is XML encoding of context-object by-value => IMO this is not a valid
+OpenURL, but we have not discussed this yet. => STOP
+=end=

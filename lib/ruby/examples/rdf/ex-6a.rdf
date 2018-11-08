@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<rdf:RDF xmlns:isa="doi:1014/yads-schema-2002-04-03#" xmlns:has="doi:1014/yads-schema-2002-04-03#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about="">
+<!--
+# OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = 1
+
+# Context-Object
+
+  # Referent
+  ref_val = 
+  ref_val_fmt = ori:schema:book
+
+  # Referring-entity
+  rfe_id = uri:urn:ISBN:0262531283
+-->
+<rdf:type>isa:Nest</rdf:type>
+<!-- OpenURL -->
+<has:resource rdf:resource=""/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Nest</rdf:type>
+<!-- Profile -->
+<has:directive>oboe:</has:directive>
+<has:resource rdf:resource="http://www2.elsevier.co.uk/~tony/oboe.rdf"/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Administration -->
+<has:type>oboe:administration</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Version -->
+<has:type>oboe:version</has:type>
+<has:resource rdf:resource="data:,1"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Context-Object -->
+<has:type>oboe:context-object</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referent -->
+<has:type>oboe:referent</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Metadata-by-val -->
+<has:type>oboe:metadata-by-val</has:type>
+<has:collection>
+<rdf:Bag>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referring-entity -->
+<has:type>oboe:referring-entity</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:identifier</has:type>
+<has:resource rdf:resource="data:,uri:urn:ISBN:0262531283"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:Description>
+</rdf:RDF>

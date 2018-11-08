@@ -1,0 +1,97 @@
+#!c:/cygwin/usr/local/bin/ruby
+
+  require 'cgi'
+  require 'oboe'; include Oboe
+
+  cgi = CGI.new; args = cgi.params
+
+  o = OpenURL.new(args)
+  
+  print "content-type: text/html\n\n"
+
+  ctx = nil; doi_ = []; uri_ = []
+  Entity.entity_types.each do |ent_type|
+    ctx = o.get_context
+    next unless ctx.entity_type?(ent_type)
+    e = ctx.get_entity_of_type(ent_type)
+    next unless e
+    Descriptor.descriptor_types.each do |dsc_type|
+      e.get_descriptors_of_type(dsc_type).each do |d|
+        case dsc_type
+          when Descriptor::ID
+            id = Registry.get_id(d.value) 
+            scheme = Registry.get_scheme(id) 
+            if scheme == 'doi'
+              post = "hdl=#{id.sub(/doi:/, '')}&auth=1&noredirect=1"
+              html = Utils.post_html("http://hdl.handle.net/", post)
+              if html
+                html.each do |line|
+                  if line =~ /<td><a href=".*?">(.*?)<\/a><\/td>/
+                    uri = $1
+                    e.add_descriptor(Descriptor.new(dsc_type, nil, "uri:#{uri}"))
+                    doi_ << id.sub(/doi:/, '')
+                    uri_ << uri
+                  end
+                end
+              end
+            end
+        end 
+      end
+    end
+    ctx.add_entity(e) 
+  end
+  o.add_context(ctx)
+
+  if doi_.length > 0
+
+    param = o.to_s; a = []
+    param.split(/\n/).each do |line|
+      uri_.each do |uri|
+        if line =~ /#{uri}/
+          line = "<b>&gt; #{line.strip}</b>"
+        end
+      end
+      a << line
+    end
+    param = a.join("\n")
+
+    print <<-"EOT"
+The DOI Agent found the following DOIs in the current context
+<ul>
+    EOT
+    doi_.each do |doi|
+      print "<li>doi:#{doi}"
+    end
+    print <<-"EOT"
+</ul>
+resolved them to these resources
+<ul>
+    EOT
+    uri_.each do |uri|
+      path, query = uri.split('?')
+      if query
+        uo = OpenURL.new(CGI.parse(query))
+        if uo.is_valid?
+          print "<li>#{uri}<p>\n"
+          print "<b>! Oops. This is an OpenURL. Needs processing:<p>\n"
+          print "<pre>\n"
+          print uo.to_s
+          print "</pre>\n"
+          print "</b>\n"
+        else
+          print "<li>#{uri}"
+        end
+      else
+        print "<li>#{uri}"
+      end
+    end
+    print <<-"EOT"
+</ul>
+and added them in to the context to enrich it.
+<hr>
+<br>
+<pre>
+#{param.to_s}
+</pre>
+    EOT
+  end

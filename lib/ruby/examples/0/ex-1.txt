@@ -1,0 +1,13 @@
+# Example 1
+
+  ref_id = ori:doi:10.1045/july99-caplan
+  ref_valfmt = jarticle
+  aulast = caplan
+  aufirst = priscilla
+  issn = 10829873
+  volume = 5
+  issue = 7/8
+  title = Reference Linking for Journal Articles
+  rfr_id = ori:dbid:dlib.org:D-Lib Magazine
+  rfe_id = ori:doi:10.1045/march2001-vandesompel
+  adm_ver = Z39.00-00

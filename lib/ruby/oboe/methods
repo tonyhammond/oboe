@@ -1,0 +1,137 @@
+def Descriptor.descriptor_types
+def Descriptor.is_descriptor_type?(type)
+def Entity.entity_types
+def Entity.is_entity_type?(type)
+def Entity.referent(*descriptors)
+def Entity.referrer(*descriptors)
+def Entity.referring_entity(*descriptors)
+def Entity.requester(*descriptors)
+def Entity.resolver(*descriptors)
+def Entity.service_type(*descriptors)
+def Registry.context_data
+def Registry.context_pointer
+def Registry.fmt_keys
+def Registry.foreign_nid
+def Registry.genres
+def Registry.get_context(nid_id)
+def Registry.get_descriptor_key_type(key)
+def Registry.get_descriptor_type(key)
+def Registry.get_entity_key_type(key)
+def Registry.get_entity_type(key)
+def Registry.get_genre_keys(genre)
+def Registry.get_id(nid_id)
+def Registry.get_nid(nid_id)
+def Registry.get_scheme(id)
+def Registry.get_schemes(nid)
+def Registry.has_fmt_key?(key)
+def Registry.has_key?(key)
+def Registry.has_key_01?(key)
+def Registry.has_legacy_keys?(keys)
+def Registry.has_nid?(key)
+def Registry.has_nid_01?(key)
+def Registry.has_scheme?(nid, scheme)
+def Registry.id
+def Registry.key_admin_char_set
+def Registry.key_admin_timestamp
+def Registry.key_admin_version
+def Registry.key_context_data
+def Registry.key_context_pointer
+def Registry.key_format_by_ref
+def Registry.key_format_by_val
+def Registry.key_service_id
+def Registry.keys
+def Registry.metadata
+def Registry.metadata_ptr
+def Registry.nid?(id)
+def Registry.nids
+def Registry.nids_01
+def Registry.private_data
+def Registry.read_properties(lines)
+def Registry.read_property_file(file)
+def Registry.read_registry_properties
+def Registry.referent
+def Registry.referrer
+def Registry.referring_entity
+def Registry.requester
+def Registry.resolver
+def Registry.schemas
+def Registry.service_type
+def Registry.set_format(format)
+def Registry.set_service(service)
+def Utils.entify(string)
+def Utils.get_html(uri)
+def Utils.post_html(uri, post)
+def _add_missing_nid(id)
+def _check_nid(nid, where)
+def _check_schema(nid, schema, where)
+def _check_scheme(nid, scheme, where)
+def _check_services
+def _check_val(val, where)
+def _encode_querystring(val)
+def _get_help(registry, items)
+def _get_hint(registry, item)
+def add_context(ctx)
+def add_data(value) @data = value end
+def add_descriptor(descriptor)
+def add_entity(entity)
+def add_id(value)
+def add_metadata(format, value)
+def add_metadata_ptr(format, value)
+def add_pointer(value) @pointer = value end
+def add_private_data(value)
+def add_referent(descriptor)
+def add_referrer(descriptor)
+def add_referring_entity(descriptor)
+def add_requester(descriptor)
+def add_resolver(descriptor)
+def add_service_type(descriptor)
+def capitalize_each
+def descriptor_type?(type)
+def entity_type?(type)
+def get_context
+def get_data() return @data end
+def get_descriptors_id() get_descriptors_of_type(Descriptor::ID) end
+def get_descriptors_metadata() get_descriptors_of_type(Descriptor::METADATA) end
+def get_descriptors_metadata_ptr() get_descriptors_of_type(Descriptor::METADATA_PTR) end
+def get_descriptors_of_type(type)
+def get_descriptors_private_data() get_descriptors_of_type(Descriptor::PRIVATE_DATA) end
+def get_directives(service)
+def get_entity_of_type(type)
+def get_pointer() return @pointer end
+def get_referent() get_entity_of_type(Entity::REFERENT) end
+def get_referrer() get_entity_of_type(Entity::REFERRER) end
+def get_referring_entity() get_entity_of_type(Entity::REFERRING_ENTITY) end
+def get_requester() get_entity_of_type(Entity::REQUESTER) end
+def get_resolver() get_entity_of_type(Entity::RESOLVER) end
+def get_service_type() get_entity_of_type(Entity::SERVICE_TYPE) end
+def hold
+def initialize
+def initialize()
+def initialize(*args)
+def initialize(type, *descriptors)
+def initialize(type, format, value)
+def is_valid?
+def less
+def more
+def post(resolver=nil)
+def remove_data() @data = nil end
+def remove_descriptor(descriptor)
+def remove_entity(entity)
+def remove_pointer() @pointer = nil end
+def remove_referent(descriptor)
+def remove_referrer(descriptor)
+def remove_referring_entity(descriptor)
+def remove_requester(descriptor)
+def remove_resolver(descriptor)
+def remove_service_type(descriptor)
+def resolve_context
+def set_context
+def to_excel
+def to_query
+def to_rdf
+def to_s
+def to_xml
+def to_yads
+def upgrade_version
+def validate
+def zero

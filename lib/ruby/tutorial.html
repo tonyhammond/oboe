@@ -1,0 +1,174 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Resolver Tutorial</title>
+</head>
+<body>
+<h1><i>Oboe</i> ~ Resolver Tutorial</h1>
+<hr>
+<p>
+<h3>Action</h3>
+This OpenURL resolver operates in two modes: User mode or Batch mode.
+In User mode it presents a web form and reads an OpenURL parameter set
+from a property list. User mode by default is not strict in parsing but will automatically supply any missing <b>administration</b> version, or namespace IDs.
+In Batch mode the resolver
+reads an OpenURL parameter set from either
+a querystring or a data post.
+Batch mode by default is strict in parsing.
+<p>
+In both modes the resolver
+ validates the parameter set as a legal OpenURL <b>context</b>,
+ and renders the result in a selected
+format. The return formats are:
+<p>
+<table width=100% cellpadding=3>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Property List</b></td>
+<td width=80%>&nbsp;&nbsp;The default result - a simple name/value text encoding - see <a href="properties.html"><b>property list</b></a> for a description</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>Excel Spreadsheet</b></td>
+<td width=80%>&nbsp;&nbsp;A Microsoft Excel spreadsheet</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>URL Querystring</b></td>
+<td width=80%>&nbsp;&nbsp;An HTTP hex-encoded querystring</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>RDF Description</b></td>
+<td width=80%>&nbsp;&nbsp;An RDF description conforming to the YADS
+data model for resource collections</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b>XML Document</b></td>
+<td width=80%>&nbsp;&nbsp;An XML document conforming to the reference W3C
+XML Schema definition for OpenURL</a>
+</tr>
+</table>
+<p>
+The default return format is the property list.
+This is also the data entry format used on the form interface to the resolver.
+(Note that the resolution result can also be modified by the use of service 
+<a href="directives.html"><b>directives</b></a>.)
+<p>
+<h3>Context</h3>
+The OpenURL parameter set is known as a <b>context</b> and comprises the
+<b>context-object</b> itself together with <b>administration</b>
+parameters - version, timestamp, and char-set. See 
+<a href="examples.html"><b>sample contexts</b></a> for worked examples.
+<p>
+<h3>Example</h3>
+<p>
+A simple OpenURL <b>context</b> requires a minimum of two parameters - one
+for the <b>administration</b> version (a manadatory parameter), and one
+for a <b>referent</b> descriptor (a mandatory entity). Note that the form will automatically supply the version
+parameter if this is missing, so only one parameter (the <b>referent</b> descriptor) needs to be entered. 
+If the <b>referent</b> entity is NISO, one could enter a URI resource
+identifier for
+an <b>identifier</b> descriptor as:
+<pre>
+  ref_id  = uri:http://www.niso.org
+</pre>
+Note that the form will supply any missing namespace ID, so the above could 
+have been entered more simply as:
+<pre>
+  ref_id  = http://www.niso.org
+</pre>
+Or if one wanted to explicitly add the version parameter one could enter:
+<pre>
+  adm_ver = Z39.00-00
+  ref_id  = uri:http://www.niso.org
+</pre>
+<p>
+<h3>Key Names</h3>
+OpenURL key names for entity descriptors (as used in querystring syntax or
+property list syntax) are composed of a prefix for the entity and a suffix
+for the descriptor
+joined by an underscore. 
+Abbreviate forms are used for the entity and the descriptor. 
+For example, the 
+key name for a <b>referent</b> <b>identifier</b> would be composed of the
+abbreviate form <b>ref</b> for <b>referent</b> and <b>id</b> for
+<b>identifier</b> giving <b>ref_id</b>.
+<p>
+Descriptor format identifiers
+follow a similar pattern by apppending a format suffix to the key name.
+For example, the 
+key name for a <b>referent</b> <b>metadata-by-val</b> format 
+identifier would be composed of the
+abbreviate form <b>ref</b> for <b>referent</b>, <b>val</b> for
+<b>metadata-by-val</b> and <b>fmt</b> to mark it as a format
+identifier giving <b>ref_val_fmt</b>.
+<p>
+The table below lists all the abbreviate forms.
+<p>
+<table width=80% cellpadding=3>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<b></b></td>
+<td width=20%>&nbsp;&nbsp;<b>Entities</b></td>
+<td width=20%>&nbsp;&nbsp;<b>Key Prefix</td>
+<td width=20%>&nbsp;&nbsp;<b>Descriptors</b></td>
+<td width=20%>&nbsp;&nbsp;<b>Key Suffix</b></td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>what?</i></td>
+<td width=20%>&nbsp;&nbsp;referent</td>
+<td width=20%>&nbsp;&nbsp;ref</td>
+<td width=20%>&nbsp;&nbsp;identifier</td>
+<td width=20%>&nbsp;&nbsp;id</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>whence?</i></td>
+<td width=20%>&nbsp;&nbsp;referrer</td>
+<td width=20%>&nbsp;&nbsp;rfr</td>
+<td width=20%>&nbsp;&nbsp;metadata-by-val</td>
+<td width=20%>&nbsp;&nbsp;val</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>where?</i></td>
+<td width=20%>&nbsp;&nbsp;referring-entity</td>
+<td width=20%>&nbsp;&nbsp;rfe</td>
+<td width=20%>&nbsp;&nbsp;metadata-by-ref</td>
+<td width=20%>&nbsp;&nbsp;ptr</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>who?</i></td>
+<td width=20%>&nbsp;&nbsp;requester</td>
+<td width=20%>&nbsp;&nbsp;req</td>
+<td width=20%>&nbsp;&nbsp;private-data</td>
+<td width=20%>&nbsp;&nbsp;dat</td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>which?</i></td>
+<td width=20%>&nbsp;&nbsp;resolver</td>
+<td width=20%>&nbsp;&nbsp;res</td>
+<td width=20%>&nbsp;&nbsp;<b>Format</b></td>
+<td width=20%>&nbsp;&nbsp;<b>Key Suffix</b></td>
+</tr>
+<tr valign="top">
+<td width=20%>&nbsp;&nbsp;<i>how?</i></td>
+<td width=20%>&nbsp;&nbsp;service-type</td>
+<td width=20%>&nbsp;&nbsp;srv</td>
+<td width=20%>&nbsp;&nbsp;format</td>
+<td width=20%>&nbsp;&nbsp;fmt</td>
+</tr>
+</tr>
+</table>
+<p>
+<h3>Property List</h3>
+<p>
+The OpenURL property list is a convenient means to enter property name/value
+pairs, one to a line. The name and value are separated by any combination
+of space, tab, equals ("="), or colon (":") characters. Leading and trailing
+spaces are ignored, but spaces within a value are preserved. See
+<a href="properties.html"><b>property list</b></a> for further details.
+<p>
+<h3>Validation</h3>
+<p>
+The validation process includes checks on the <b>administration</b> version,
+the presence of a <b>referent</b> entity descriptor, legal <b>identifier</b> namespace
+ IDs and schemes, and legal <b>metadata</b> format identifiers and keywords. A
+more complete summary of checks is listed under <a href="features.html"><b>features</b></a>.
+</body>
+
+</html>

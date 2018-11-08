@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<rdf:RDF xmlns:isa="doi:1014/yads-schema-2002-04-03#" xmlns:has="doi:1014/yads-schema-2002-04-03#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about="">
+<!--
+#  OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = Z39.00-00
+
+# ContextObject
+
+  ref_valfmt = jarticle
+  date = 2002-02
+  stitle = Appl Environ Microbiol
+  issue = 2
+  volume = 68
+  aulast = Sturino
+  rfr_id = ori:dbid:ncbi.nlm.nih.gov:pubmed
+  rfe_id = ori:pmid:11823195
+  req_id = uri:mailto:joe.doe@greatjob.org
+-->
+<rdf:type>isa:Nest</rdf:type>
+<!-- OpenURL -->
+<has:resource rdf:resource=""/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Nest</rdf:type>
+<!-- Profile -->
+<has:directive>oboe:</has:directive>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Administration -->
+<has:type>oboe:administration</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Version -->
+<has:type>oboe:version</has:type>
+<has:resource rdf:resource="data:,Z39.00-00"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- ContextObject -->
+<has:type>oboe:context-object</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referent -->
+<has:type>oboe:referent</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Metadata -->
+<has:type>oboe:metadata</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:schema:jarticle:date</has:type>
+<has:resource rdf:resource="data:,2002-02"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:schema:jarticle:stitle</has:type>
+<has:resource rdf:resource="data:,Appl%20Environ%20Microbiol"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:schema:jarticle:issue</has:type>
+<has:resource rdf:resource="data:,2"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:schema:jarticle:volume</has:type>
+<has:resource rdf:resource="data:,68"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>oboe:schema:jarticle:aulast</has:type>
+<has:resource rdf:resource="data:,Sturino"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referrer -->
+<has:type>oboe:referrer</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:identifier</has:type>
+<has:resource rdf:resource="data:,ori:dbid:ncbi.nlm.nih.gov:pubmed"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referring-entity -->
+<has:type>oboe:referring-entity</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:identifier</has:type>
+<has:resource rdf:resource="data:,ori:pmid:11823195"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Requester -->
+<has:type>oboe:requester</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:identifier</has:type>
+<has:resource rdf:resource="data:,uri:mailto:joe.doe@greatjob.org"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Service-type -->
+<has:type>oboe:service-type</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:identifier</has:type>
+<has:resource rdf:resource="data:,_ri:oboe:no_strict"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+<has:resource rdf:resource="http://www2.elsevier.co.uk/~tony/oboe.rdf"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:Description>
+</rdf:RDF>

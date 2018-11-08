@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+while (<>) {
+  next unless m|\S|;
+  s|^\s*|| if $start;
+  for ($_) {
+    /^<yads/ && $start++;
+    /^<(nest|item)/ && $S++; 
+    /^<\/(nest|item)/ && $S--; 
+  }
+  s|\r||g;
+  print "  " x $S, $_;
+    /^<(nest|item)/ && $S++; 
+    /^<\/(nest|item)/ && $S--; 
+}

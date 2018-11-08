@@ -1,0 +1,62 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe</title>
+</head>
+<body>
+<h1><i>Oboe</i> ~ Simple OpenURL Resolver</h1>
+<hr>
+Below is a complete example of a simple resolver in Ruby - just 5 lines of code. The <code>to_xml</code>
+method returns an <code>OpenURL</code> object as an XML doument.
+<p>
+<hr>
+<pre>
+#!/usr/local/bin/ruby
+
+  require 'cgi'
+  require 'oboe'; include Oboe
+
+  cgi = CGI.new; args = cgi.params
+
+  print "content-type: application/xml\n\n"
+  print OpenURL.new(args).to_xml
+
+__END__
+</pre>
+<hr>
+To turn this into a validating resolver just substitute the following code 
+in place of the last two lines.
+<p>
+<hr>
+<pre>
+  o = OpenURL.new(args)
+  if o.is_valid? 
+    print "content-type: application/xml\n\n"
+    print o.to_xml
+  else
+    print "content_type: text/plain\n\n"
+    print "! Not valid OpenURL"
+  end
+</pre>
+<hr>
+Or, if an error message is required, use the following code instead. The
+<code>validate</code> method raises an exception if any constraint is not met
+which can be caught by the <code>rescue</code> clause in a
+ <code>begin</code>/<code>end</code> block.
+<p>
+<hr>
+<pre>
+  o = OpenURL.new(args)
+  begin
+    o.validate
+    print "content-type: application/xml\n\n#{o.to_xml}"
+  rescue
+    print "content_type: text/html\n\n"
+    print "&lt;body&gt;&lt;pre&gt;\n"
+    print "! Not valid OpenURL:\n\n#{$!.to_s}\n"
+    print "&lt;/pre&gt;&lt;/body&gt;\n"
+  end
+</pre>
+<hr>
+</body>
+</html>

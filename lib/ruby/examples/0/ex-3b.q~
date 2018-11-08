@@ -1,0 +1,12 @@
+# Example 3b
+
+  ref_id = ori:pmid:11823195
+  ref_valfmt = ori:schema:jarticle
+  aulast = Sturino
+  auinit = JM
+  stitle = Appl Environ Microbiol
+  volume = 68
+  issue = 2
+  date = 2002-02
+
+  adm_ver = Z39.00-00

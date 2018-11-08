@@ -1,0 +1,34 @@
+#!/usr/bin/tcsh
+
+popd
+
+foreach f (`ls examples/q/*\.q`)
+  echo "adm_ver=1&srv_id=_ri:oboe:to_yads&ctx_ptr=uri:http://localhost/oboe/lib/ruby/examples/q/`basename $f`"| ruby resolver.cgi >! examples/xml/`basename $f .q`.xml
+end
+
+foreach f (`ls examples/xml/*\.xml`)
+
+  # build typed node SVG graphs
+  xalan -l -xsl ../../xsl/yads2dot.xsl -in $f -out `basename $f .xml`.dot -param terminals 0 
+  perl -pi.0 -e 's|&|&amp;|g' `basename $f .xml`.dot 
+  dot -Tsvg `basename $f .xml`.dot -o `basename $f .xml`.svg
+  perl -pi.0 -e 's|(font-size:)14.00|${1}11.00|g' `basename $f .xml`.svg
+  perl -pi.0 -e 's|(\<a xlink:href=\"(http:.*?)\")|$1 target="_blank" onmouseover="show_status(\x27$2\x27);"|' `basename $f .xml`.svg
+  perl -pi.0 -e 's|(\<a xlink:href=\")data:,*(.*?)\"|$1\" onclick="show_data(\x27$2\x27);" onmouseover="show_status(\x27data:,$2\x27);"|' `basename $f .xml`.svg
+  perl -pi.0 -e 's|\r||g' `basename $f .xml`.svg
+  \rm -f `basename $f .xml`.dot.0
+  ../../bin/make-html `basename $f .xml`.svg
+  \rm -f `basename $f .xml`.svg.0
+  mv `basename $f .xml`.dot examples/dot/`basename $f .xml`.dot
+  mv `basename $f .xml`.svg examples/svg/`basename $f .xml`.svg
+  mv `basename $f .xml`.html examples/svg/`basename $f .xml`.html
+
+  # build RDF/XML descriptions
+  xalan -l -xsl ../../xsl/yads2rdf.xsl -in $f -out `basename $f .xml`.rdf
+  mv `basename $f .xml`.rdf examples/rdf/`basename $f .xml`.rdf
+
+  # build text dumps
+  xalan -l -xsl ../../xsl/yads2d.xsl -in $f -out `basename $f .xml`.d
+  mv `basename $f .xml`.d examples/d/`basename $f .xml`.d
+
+end

@@ -1,0 +1,26 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe</title>
+</head>
+<body>
+<h1>
+Oboe/Ruby - Example</h1>
+<hr>
+Below is a complete example of a simple parser in Ruby. The <code>to_xml</code>
+method returns an <code>OpenURL</code> object as an XML doument.
+<hr>
+<pre>
+#!/usr/local/bin/ruby
+
+  require 'cgi'
+  require 'oboe'; include Oboe
+
+  cgi = CGI.new; args = cgi.params
+
+  print "content-type: application/xml\n\n"
+  print OpenURL.new(args).to_xml
+</pre>
+<hr>
+</body>
+</html>

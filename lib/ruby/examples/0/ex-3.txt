@@ -1,0 +1,14 @@
+# Example 3
+
+  ref_valfmt = jarticle
+  aulast = Sturino
+  auinit = JM
+  stitle = Appl Environ Microbiol
+  volume = 68
+  issue = 2
+  date = 2002-02
+  adm_ver = Z39.00-00
+  ref_ptr = uri:http://www.ncbi.nlm.nih.gov/entrez/utils/pmfetch.fcgi?db=PubMe&id=11823195&report=xml&mode=text
+  rfr_id = ori:dbid:ncbi.nlm.nih.gov:pubmed
+  req_id = uri:mailto:joe.doe@greatjob.org
+  rfe_id = ori:pmid:11823195

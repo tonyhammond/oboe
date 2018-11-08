@@ -1,0 +1,281 @@
+OpenURL EBNF 2002-06-13T22:00Z(* 
+================================================================================= 
+*)
+(* EBNF for OpenURL 1.0 , version 2002-06-13T22:00Z - herbert van de sompel / 
+tony hammond / oren beit-arie *)
+(* 
+================================================================================= 
+*)
+(* In the following, EBNF ISO/IEC 14977 : 1996(E) -- see 
+http://www.cl.cam.ac.uk/~mgk25/iso-14977.pdf -- is used to define:
+1. In PART A: The syntax of the HTTP(S) GET and POST version of the OpenURL 1.0 
+used for transportation of the context-object, encoded in the way specified in 
+PART B;
+2. In PART B: A "name=value" pair encoding of the context-object designed 
+specifically for transportation via an HTTP(S) GET and POST. 
+*)
+(*
+This EBNF describes a "reference" OpenURL format which needs to be represented 
+as an actual URL string. This actual URL string may be identical to the 
+"reference" OpenURL format. However, other URL strings are also valid under one 
+of the following conditions: 
+a) the order of the name/value keyword pairs is rearranged (resulting in a 
+reordered OpenURL), 
+b) foreign (i.e. non-OpenURL) name/value pairs are included (resulting in a 
+fragmented OpenURL).
+*)
+(* In EBNF ISO/IEC 14977 : 1996(E) : [ ] means zero or one / { } means zero or 
+more *)
+(* ================================================================== *)
+(* PART A - SECTION 0: THE HTTP(S) GET AND POST VERSION OF OPENURL v.1.0 *)
+(* ================================================================== *)
+(* A.0.0 *) openurl = openurl-get | openurl-post ;
+(* Only HTTP(S) GET AND POST are supported *)
+(* A.0.1 *) openurl-get = base-url , '?' , query ;
+(* URI submitted via HTTP(S) GET method *)
+(* A.0.2 *) openurl-post = base-url ;
+(* URI submitted via HTTP(S) POST method; the query (see A.0.1 and A.2.0) is 
+delivered as the message BODY of the HTTP(S) POST *)
+(* PART A - SECTION 1 : THE BASE-URL OF OPENURL v.1.0 - MANDATORY *)
+(* A.1.0 *) base-url = http-base-url | https-base-url ;
+(* A.1.1 *) http-base-url = 'http' , '://' , host-port-path ;
+(* A.1.2 *) https-base-url = 'https' , '://' , host-port-path ;
+(* A.1.3 *) host-port-path = { char - '?' };
+(* host-port-path follows the syntax of the <authority><path> part of 
+<scheme>://<authority><path>?<query> of 
+http://www.ietf.org/rfc/rfc2396.txt?number=2396. *)
+(* PART A - SECTION 2 : THE QUERY PART OF OPENURL v.1.0 - MANDATORY *)
+(* A.2.0 *) query = ( context-object-by-val | context-object-by-ref ) , 
+administration ;
+(* A.2.1 *) context-object-by-val = context-object-name-value-encoding ;
+(* A.2.2 *) context-object-by-ref = 'ctx_ptr' , '=' , network-location ;
+(* The context-object can be provided via the OpenURL in 2 ways:
+- flavor 1 - by-value : the context-object, packaged in the way specified by the 
+context-object-name-value-encoding element of PART B of this EBNF, is provided 
+in the query part of the OpenURL. The context-object will be described by means 
+of name=value pairs. As those will be delivered on a HTTP(S) GET or POST, 
+URL-encoding must be applied wherever necessary.
+- flavor 2 - by-reference : the network location of a file -- with MIME-type 
+text/plain -- containing the context-object, packaged in the way specified by 
+the context-object-name-value-encoding element of PART B of this EBNF, is 
+provided in the query part of the OpenURL. In this case, URL-encoding must not 
+be applied to the content of the file.
+*)
+(* PART A - SECTION 3 : ADMINISTRATIVE INFORMATION - MANDATORY *)
+(* A.3.0 *) administration = ( openurl-version , '&' ) , [ timestamp , '&' ] , [ 
+character-set , '&' ] ;
+(* OpenURL version, specified as NISO Z-number *) 
+(* A.3.1 *) openurl-version = 'adm_ver' , '=' , 'Z39' , '.' , 2 * digit , '-' , 
+string ;
+(* ISO8601-conformant datestamp in YYYY-MM-DD or YYYY-MM-DDTHH:MM:SSZ format *) 
+(* A.3.2 *) timestamp = 'adm_tim' , '=' , datetime ;
+(* OpenURL character set: UTF-8 encoded Unicode is default. Other values from 
+IANA list *)
+(* A.3.3 *) character-set = 'adm_set' , '=' , string ;
+(* the value for adm_set specifies the character encoding used on the OpenURL. 
+legitimate values are taken from the IANA list at 
+http://www.iana.org/assignments/character-sets. the values to be used on the 
+OpenURL are the ones listed next to Name or -- if available -- the values with 
+an indication of "preferred MIME name" in the IANA list. UTF-8 is the default 
+value, representing UTF-8 encoded Unicode. *) 
+(* ====================================== *)
+(* PART B - SECTION 0 : THE CONTEXT-OBJECT *)
+(* ====================================== *)
+(* B.0.0 *) context-object-name-value-encoding = context-object-entities , [ 
+context-object-private-data ] ;
+(* B.0.1 *) context-object-entities = referent , [ requester ] , [ referrer ] , 
+[ referring-entity ] , [ service-type ] , [ resolver ] ;
+(* PART B - SECTION 1 : THE REFERENT ENTITY - MANDATORY *)
+(* B.1.0 *) referent = { referent-id , '&' } , [ referent-metadata-by-val , '&' 
+] , [ referent-metadata-by-ref , '&' ] , [ referent-private-data , '&' ] ;
+(* describe the referent by means of identifiers *)
+(* B.1.1 *) referent-id = 'ref_id' , '=' , namespace-id , ':' , identifier ;
+(* describe the referent by means of by-value metadata *)
+(* B.1.2 *) referent-metadata-by-val = 'ref_valfmt', '=' , by-val-format-id , { 
+'&' , metadata-tag , '=' , metadata-value } ;
+(* describe the referent by means of by-reference metadata *)
+(* B.1.3 *) referent-metadata-by-ref = 'ref_reffmt' , '=' , by-ref-format-id , 
+'&' , 'ref_ptr' , '=' , network-location ;
+(* describe the referent by means of a private zone - only valid when a 
+description of the referrer by means of identifier or by means of by-reference 
+metadata is provided *)
+(* B.1.4 *) referent-private-data = 'ref_pid' , '=' , private-zone-value ; 
+(* PART B - SECTION 2 : THE REQUESTER ENTITY - OPTIONAL *)
+(* B.2.0 *) requester = { requester-id , '&' } , [ requester-metadata-by-ref , 
+'&' ] , [ requester-private-data , '&' ] ;
+(* describe the requester by means of identifiers *)
+(* B.2.1 *) requester-id = 'req_id' , '=' , namespace-id , ':' , identifier ;
+(* describe the requester by means of by-reference metadata *)
+(* B.2.2 *) requester-metadata-by-ref = 'req_reffmt' , '=' , by-ref-format-id , 
+'&' , 'req_ptr' , '=' , network-location ;
+(* describe the requester by means of a private zone - only valid when a 
+description of the referrer by means of identifier or by means of by-reference 
+metadata is provided *)
+(* B.2.3 *) requester-private-data = 'req_pid' , '=' , private-zone-value ; 
+(* PART B - SECTION 3 : THE REFERRER ENTITY - OPTIONAL*)
+(* B.3.0 *) referrer = { referrer-id , '&' } , [ referrer-metadata-by-ref , '&' 
+] , [ referrer-private-data , '&' ] ;
+(* describe the referrer by means of identifiers *)
+(* B.3.1 *) referrer-id = 'rfr_id' , '=' , namespace-id , ':' , identifier ;
+(* describe the referrer by means of by-reference metadata *)
+(* B.3.2 *) referrer-metadata-by-ref = 'rfr_reffmt' , '=' , by-ref-format-id , 
+'&' , 'rfr_ptr' , '=' , network-location ;
+(* describe the referrer by means of a private zone - only valid when referrer 
+is also described by means of identifier *)
+(* B.3.3 *) referrer-private-data = 'rfr_pid' , '=' , private-zone-value ; 
+(* PART B - SECTION 4 : THE REFERRING ENTITY - OPTIONAL*)
+(* B.4.0 *) referring-entity = { referring-entity-id , '&' } , [ 
+referring-entity-metadata-by-ref , '&' ] , [ referring-entity-private-data , '&' 
+] ;
+(* describe the referring-entity by means of identifiers *)
+(* B.4.1 *) referring-entity-id = 'rfe_id' , '=' , namespace-id , ':' , 
+identifier ;
+(* describe the referring-entity by means of by-reference metadata *)
+(* B.4.2 *) referring-entity-metadata-by-ref = 'rfe_reffmt' , '=' , 
+by-ref-format-id , '&' , 'rfe_ptr' , '=' , network-location ;
+(* describe the referring-entity by means of a private zone - only valid when a 
+description of the referrer by means of identifier or by means of by-reference 
+metadata is provided *)
+(* B.4.3 *) referring-entity-private-data = 'rfe_pid' , '=' , private-zone-value 
+; 
+(* PART B - SECTION 5 : THE SERVICE-TYPE ENTITY - OPTIONAL*)
+(* B.5.0 *) service-type = { service-type-id , '&' } , [ 
+service-type-metadata-by-ref , '&' ] , [ service-type-private-data , '&' ] ;
+(* describe the service-type by means of identifiers *)
+(* B.5.1 *) service-type-id = 'srv_id' , '=' , namespace-id , ':' , identifier ;
+(* describe the service-type by means of by-reference metadata *)
+(* B.5.2 *) service-type-metadata-by-ref = 'srv_reffmt' , '=' , by-ref-format-id 
+, '&' , 'srv_ptr' , '=' , network-location ;
+(* describe the service-type by means of a private zone - only valid when a 
+description of the referrer by means of identifier or by means of by-reference 
+metadata is provided *)
+(* B.5.3 *) service-type-private-data = 'srv_pid' , '=' , private-zone-value ; 
+(* PART B - SECTION 6 : THE RESOLVER ENTITY - OPTIONAL *)
+(* B.6.0 *) resolver = { resolver-id , '&' } , [ resolver-metadata-by-ref , '&' 
+] , [ resolver-private-data , '&' ] ;
+(* describe the resolver by means of identifiers *)
+(* B.6.1 *) resolver-id = 'res_id' , '=' , namespace-id , ':' , identifier ;
+(* describe the resolver by means of by-reference metadata *)
+(* B.6.2 *) resolver-metadata-by-ref = 'res_reffmt' , '=' , by-ref-format-id , 
+'&' , 'res_ptr' , '=' , network-location ;
+(* describe the resolver by means of a private zone - only valid when a 
+description of the referrer by means of identifier or by means of by-reference 
+metadata is provided *)
+(* B.6.3 *) resolver-private-data = 'res_pid' , '=' , private-zone-value ; 
+(* PART B - SECTION 7 : PRIVATE DESCRIPTION OF CONTEXT-OBJECT - OPTIONAL*)
+(* may contains private, context-object-related information - only valid when a 
+description of the referrer by means of identifier or by means of by-reference 
+metadata is provided *)
+(* B.7.0 *) context-object-private-data = 'ctx_pid' , '=' , private-zone-value ; 
+
+(* PART B - SECTION 8 : IDENTIFIERS USED IN THE DESCRIPTION OF REFERENT, 
+REQUESTER, REFERRER, REFERRING-ENTITY, SERVICE-TYPE *)
+(* identifier - always used in combination with leading indicator of a 
+"namespace"the identifier belongs to *)
+(* B.8.0 *) identifier = charstring ;
+(* identifiers to allow identifation of namespaces of identifiers - used for 
+referent, requester, referrer, referring-entity, service-type *)
+(* B.8.1 *) namespace-id = 'local' | 'uri' | open-namespace-id ;
+(* B.8.2 *) open-namespace-id = string ;
+(* namespace-id's come in 3 flavors:
+- flavor 1 : The reserved word 'local' is introduced as a means to refer to 
+identifier-namespaces that are specific to the Referrer-environment, as opposed 
+to namespace-identifiers that have a global reach because of their public 
+registration. Usage of 'local' is only valid when a description of the referrer 
+by means of identifier or by means of by-reference metadata is provided.
+- flavor 2 : The reserved word 'uri' is introduced as a means to refer to URI 
+schemes registered with IANA -- see http://www.iana.org/assignments/uri-schemes. 
+A URI scheme of type "urn:" takes a URN namespace ID from the URN namespaces 
+registered with IANA -- see http://www.iana.org/assignments/urn-namespaces. 
+Therefore, values for charstring used with the 'uri' flavor, comply with the URI 
+schemes registered with IANA and where a scheme of type "urn:" is used the URN 
+namespace identifier complies with the URN namespaces registered with IANA. URI 
+syntax complies with the syntax described in 
+http://www.ietf.org/rfc/rfc2396.txt?number=2396. 
+- flavor 3 : Other legitimate values for namespace-id's -- referred to as 
+open-namespace-id's -- are stored in the 'OpenURL Registry for 
+namespace-identifiers'. That registry contains identifiers for namespaces of 
+identifiers that unambigiously represent referents, referring-entities, 
+referrers, requesters, and service-types. 
+*)
+(* identifiers to allow identification of by-value metadata formats - used for 
+referent only *)
+(* B.8.3 *) by-val-format-id = 'local' , ':' , identifier | network-location | 
+open-by-val-format-id ;
+(* B.8.4 *) open-by-val-format-id = string ;
+(* Legitimate values for by-val-format-id come in 3 flavors:
+- flavor 1 : The reserved word 'local' is introduced as a means to enable 
+referencing locally defined by-value metadata formats. Usage of 'local' is only 
+valid when a description of the referrer by means of identifier or by means of 
+by-reference metadata is provided.
+- flavor 2 : Not used until further notice - The network-location (compliant to 
+the syntax defined in B.8.7) specifies the SchemaLocation -- the URL where the 
+Schema can be found -- of an XML Schema registered in the OpenURL Registry for 
+by-value metadata formats. 
+- flavor 3 : Other legitimate values for by-value format identifiers are 
+shortcuts for the SchemaLocation used in flavor 2, provided by the 'OpenURL 
+Registry for by-value-metadata-formats'. In that registry, a one-to-one 
+relationship exists between this shortcut-identifier, the SchemaLocation of 
+flavor 2 and a corresponding Schema defining a regsitered by-value format.*)
+(* identifiers to allow identification of by-reference metadata formats - used 
+for referent, requester, referrer, referring-entity and service-type *)
+(* B.8.5 *) by-ref-format-id = 'local , ':' , identifier | network-location | 
+open-by-ref-format-id ;
+(* B.8.6 *) open-by-ref-format-id = string ;
+(* Legitimate values for by-ref-format-id come in 3 flavors: 
+- flavor 1 : The reserved word 'local' is introduced as a means to enable 
+referencing locally defined by-reference metadata formats. Usage of 'local' is 
+only valid when a description of the referrer by means of identifier or by means 
+of by-reference metadata is provided.
+- flavor 2 : The network-location (compliant to the syntax defined in B.8.7) 
+specifies the SchemaLocation -- the URL where the Schema can be found -- of an 
+XML Schema registered in the OpenURL Registry for by-reference metadata formats. 
+
+- flavor 3 : Not used until further notice - Other legitimate values for 
+by-value format identifiers are shortcuts for the SchemaLocation used in flavor 
+2, provided by the 'OpenURL Registry for by-reference-metadata-formats'. In that 
+registry, a one-to-one relationship exists between this shortcut-identifier, the 
+SchemaLocation of flavor 2 and a corresponding Schema defining a regsitered 
+by-reference format.*)
+(* network location *)
+(* B.8.7 *) network-location = 'uri' , ':' , charstring ;
+(* The reserved word 'uri' is introduced as a means to refer to URI schemes 
+registered with IANA -- see http://www.iana.org/assignments/uri-schemes. A URI 
+scheme of type "urn:" takes a URN namespace ID from the URN namespaces 
+registered with IANA -- see http://www.iana.org/assignments/urn-namespaces. 
+Therefore, values for charstring used with the 'uri' flavor, comply with the URI 
+schemes registered with IANA and where a scheme of type "urn:" is used the URN 
+namespace identifier complies with the URN namespaces registered with IANA. URI 
+syntax complies with the syntax described in 
+http://www.ietf.org/rfc/rfc2396.txt?number=2396. A typical value for the 
+charstring used for network-location is a URL. *)
+(* PART B - SECTION 9 : BASIC TYPES *)
+(* B.9.0 *) metadata-value = charstring ;
+(* B.9.1 *) private-zone-value = charstring ;
+(* B.9.2 *) datetime = 4 * digit , '-' , 2 * digit , '-' , 2 * digit , [ 'T' , 2 
+* digit , ':' , 2 * digit , ':' , 2 * digit , 'Z' ] ;
+(* PART B - SECTION 10 : STRINGS *)
+(* B.10.0 *) charstring = char , {char} ;
+(* B.10.1 *) string = no-escape-char , {no-escape-char} ;
+(* B.10.2 *) metadata-tag = alpha , {metadata-tag-char} ;
+(* PART B - SECTION 11 : CHARACTERS *)
+(* B.11.0 *) char = alphanum | mark | escaped ;
+(* B.11.1 *) metadata-tag-char = alphanum | '.' | '-' ;
+(* B.11.2 *) no-escape-char = alphanum | mark ;
+(* B.11.3 *) alphanum = alpha | digit ;
+(* B.11.4 *) alpha = lowalpha | upalpha ;
+(* B.11.5 *) lowalpha = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 
+'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 
+'w' | 'x' | 'y' | 'z' ;
+(* B.11.6 *) upalpha = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' 
+| 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 
+'X' | 'Y' | 'Z' ;
+(* B.11.7 *) digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+(* B.11.8 *) mark = '-' | '_' | '.' | '!' | '*' | ''' | '(' | ')' | '$' | '+' ;
+(* the above follows the guidelines regarding writing URI's from O'Reilly's 
+Definitive Guide on HTML & XMHTL, urn:ISBN:0-596-00026-X , page 174 ; reserved 
+and unsafe characters are omitted from the set of mark-characters *)
+(* B.11.9 *) escaped = '%' , hex , hex ;
+(* B.11.10 *) hex = digit | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'a' | 'b' | 'c' 
+| 'd' | 'e' | 'f' ;
+ 

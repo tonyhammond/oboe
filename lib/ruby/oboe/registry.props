@@ -1,0 +1,549 @@
+########################################################################
+#
+# Oboe - Property file for OpenURL Registry
+#
+#        Lists: Schemas, NIDs, Key names, XML element names (v.1.0)
+#               NIDs, Key names, Genre values (v.0.1)
+#
+# Author - Tony Hammond <t.hammond@elsevier.com>
+# 
+# Copyright (c) 2002 Elsevier Science Ltd. All rights reserved.
+#
+########################################################################
+# Registries
+
+registry.regitries = \
+  registry.char_sets \
+  registry.schemas registry.nids registry.keys \
+  registry.genres_01 registry.nids_01 registry.keys_01
+
+# Missing are the names
+
+########################################################################
+# Char Sets
+
+registry.char_sets = \
+  registry.char_set.UTF-8 registry.char_set.UTF-16 \
+  registry.char_set.ISO-10646-UCS-2 registry.char_set.ISO-10646-UCS-4 \
+  registry.char_set.ISO-8859-1 registry.char_set.ISO-8859-2 \
+  registry.char_set.ISO-8859-3 registry.char_set.ISO-8859-4 \
+  registry.char_set.ISO-8859-6 registry.char_set.ISO-8859-6-E \
+  registry.char_set.ISO-8859-6-I registry.char_set.ISO-8859-7 \
+  registry.char_set.ISO-8859-8 registry.char_set.ISO-8859-8-E \
+  registry.char_set.ISO-8859-8-I registry.char_set.ISO-8859-5 \
+  registry.char_set.ISO-8859-9 registry.char_set.ISO-8859-10 \
+  registry.char_set.ASCII registry.char_set.US-ASCII \
+  registry.char_set.ISO-2022-KR registry.char_set.EUC-KR \
+  registry.char_set.ISO-2022-JP registry.char_set.ISO-2022-JP-2 \
+  registry.char_set.KOI8-R registry.char_set.Shift_JIS \
+  registry.char_set.EUC-JP registry.char_set.GB2312 registry.char_set.Big5
+
+registry.char_set.UTF-8 = UTF-8
+registry.char_set.UTF-16 = UTF-16
+registry.char_set.ISO-10646-UCS-2 = ISO-10646-UCS-2
+registry.char_set.ISO-10646-UCS-4 = ISO-10646-UCS-4
+registry.char_set.ISO-8859-1 = ISO-8859-1
+registry.char_set.ISO-8859-2 = ISO-8859-2
+registry.char_set.ISO-8859-3 = ISO-8859-3
+registry.char_set.ISO-8859-4 = ISO-8859-4
+registry.char_set.ISO-8859-6 = ISO-8859-6
+registry.char_set.ISO-8859-6-E = ISO-8859-6-E
+registry.char_set.ISO-8859-6-I = ISO-8859-6-I
+registry.char_set.ISO-8859-7 = ISO-8859-7
+registry.char_set.ISO-8859-8 = ISO-8859-8
+registry.char_set.ISO-8859-8-E = ISO-8859-8-E
+registry.char_set.ISO-8859-8-I = ISO-8859-8-I
+registry.char_set.ISO-8859-5 = ISO-8859-5
+registry.char_set.ISO-8859-9 = ISO-8859-9
+registry.char_set.ISO-8859-10 = ISO-8859-10
+registry.char_set.ASCII = ASCII
+registry.char_set.US-ASCII = US-ASCII
+registry.char_set.ISO-2022-KR = ISO-2022-KR
+registry.char_set.EUC-KR = EUC-KR
+registry.char_set.ISO-2022-JP = ISO-2022-JP
+registry.char_set.ISO-2022-JP-2 = ISO-2022-JP-2
+registry.char_set.KOI8-R = KOI8-R
+registry.char_set.Shift_JIS = Shift_JIS
+registry.char_set.EUC-JP = EUC-JP
+registry.char_set.GB2312 = GB2312
+registry.char_set.Big5 = Big5
+
+########################################################################
+# Schemas (v.1.0)
+
+registry.schemas = \
+  registry.schema.book \
+  registry.schema.book_component \
+  registry.schema.conf_proc \
+  registry.schema.conf_paper \
+  registry.schema.dissertation \
+  registry.schema.journal \
+  registry.schema.jissue \
+  registry.schema.jarticle \
+  registry.schema.patent \
+  registry.schema.tech_report
+
+# registry.schema.book = doi:10.niso/book
+registry.schema.book = ori:schema:book
+registry.schema.book_keys = \
+  au aufirst aulast btitle date isbn org place pub title tpages
+
+# registry.schema.book_component = doi:10.niso/book_component
+registry.schema.book_component = ori:schema:book_component
+registry.schema.book_component_keys \
+  artnum au aufirst aulast chron coden date eissn epage issn issue \
+  jtitle org pages part sici spage stitle title volume
+
+# registry.schema.conf_proc = doi:10.niso/conf_proc
+registry.schema.conf_proc = ori:schema:conf_proc
+registry.schema.conf_proc_keys \
+  artnum au aufirst aulast chron coden date eissn epage issn issue \
+  jtitle org pages part sici spage stitle title volume
+
+# registry.schema.conf_paper = doi:10.niso/conf_paper
+registry.schema.conf_paper = ori:schema:conf_paper
+registry.schema.conf_paper_keys \
+  artnum au aufirst aulast chron coden date eissn epage issn issue \
+  jtitle org pages part sici spage stitle title volume
+
+# registry.schema.dissertation = doi:10.niso/dissertation
+registry.schema.dissertation = ori:schema:dissertation
+registry.schema.dissertation_keys \
+  artnum au aufirst aulast chron coden date eissn epage issn issue \
+  jtitle org pages part sici spage stitle title volume
+
+# registry.schema.journal = doi:10.niso/journal
+registry.schema.journal = ori:schema:journal
+registry.schema.journal_keys \
+  coden eissn issn jtitle stitle title
+
+# registry.schema.jissue = doi:10.niso/jissue
+registry.schema.jissue = ori:schema:jissue
+registry.schema.jissue_keys \
+  chron coden date eissn issn issue jtitle part sici stitle title volume
+
+# registry.schema.jarticle = doi:10.niso/jarticle
+registry.schema.jarticle = ori:schema:jarticle
+registry.schema.jarticle_keys \
+  artnum au aufirst aulast chron coden date eissn epage issn issue \
+  jtitle org pages part sici spage stitle title volume
+
+# registry.schema.patent = doi:10.niso/tech_report
+registry.schema.patent = ori:schema:tech_report
+registry.schema.patent_keys \
+  artnum au aufirst aulast chron coden date eissn epage issn issue \
+  jtitle org pages part sici spage stitle title volume
+
+# registry.schema.tech_report = doi:10.niso/tech_report
+registry.schema.tech_report = ori:schema:tech_report
+registry.schema.tech_report_keys \
+  artnum au aufirst aulast chron coden date eissn epage issn issue \
+  jtitle org pages part sici spage stitle title volume
+
+########################################################################
+# Namespace identifiers (v.1.0)
+
+registry.nids = \
+  registry.nid._ri registry.nid.ori registry.nid.uri
+
+registry.nid._ri = _ri
+registry.nid.ori = ori
+registry.nid.uri = uri
+
+# Generic resource identifier schemes
+registry.nid._ri.schemes = \
+  registry.nid._ri.schemes.oboe registry.nid._ri.schemes.xref
+
+registry.nid._ri.schemes.oboe = oboe
+registry.nid._ri.schemes.xref = xref
+
+# OpenURL resource identifier schemes
+registry.nid.ori.schemes = \
+  registry.nid.ori.schemes.schema \
+  registry.nid.ori.schemes.bibcode registry.nid.ori.schemes.doi \
+  registry.nid.ori.schemes.oai registry.nid.ori.schemes.pmid \
+  registry.nid.ori.schemes.dbid registry.nid.ori.schemes.issn \
+  registry.nid.ori.schemes.isbn registry.nid.ori.schemes.dns
+
+registry.nid.ori.schemes.schema = schema
+registry.nid.ori.schemes.bibcode = bibcode
+registry.nid.ori.schemes.doi = doi
+registry.nid.ori.schemes.oai = oai
+registry.nid.ori.schemes.pmid = pmid
+registry.nid.ori.schemes.dbid = dbid
+registry.nid.ori.schemes.issn = issn
+registry.nid.ori.schemes.isbn = isbn
+registry.nid.ori.schemes.dns = dns
+
+# Uniform resource identifier schemes
+# Only a subset of the IANA registry (see schemes below) is registered here
+registry.nid.uri.schemes = \
+  registry.nid.uri.schemes.data registry.nid.uri.schemes.file \
+  registry.nid.uri.schemes.ftp registry.nid.uri.schemes.gopher \
+  registry.nid.uri.schemes.http registry.nid.uri.schemes.https \
+  registry.nid.uri.schemes.ldap registry.nid.uri.schemes.mailto \
+  registry.nid.uri.schemes.urn
+
+registry.nid.uri.schemes.acap = acap
+registry.nid.uri.schemes.cid = cid
+registry.nid.uri.schemes.data = data
+registry.nid.uri.schemes.dav = dav
+registry.nid.uri.schemes.fax = fax
+registry.nid.uri.schemes.file = file
+registry.nid.uri.schemes.ftp = ftp
+registry.nid.uri.schemes.gopher = gopher
+registry.nid.uri.schemes.http = http
+registry.nid.uri.schemes.https = https
+registry.nid.uri.schemes.imap = imap
+registry.nid.uri.schemes.ldap = ldap
+registry.nid.uri.schemes.mailto = mailto
+registry.nid.uri.schemes.mid = mid
+registry.nid.uri.schemes.modem = modem
+registry.nid.uri.schemes.news = news
+registry.nid.uri.schemes.nfs = nfs
+registry.nid.uri.schemes.nntp = nntp
+registry.nid.uri.schemes.opaquelocktoken = opaquelocktoken
+registry.nid.uri.schemes.pop = pop
+registry.nid.uri.schemes.prospero = prospero
+registry.nid.uri.schemes.rtsp = rtsp
+registry.nid.uri.schemes.service = service
+registry.nid.uri.schemes.sip = sip
+registry.nid.uri.schemes.soap.beep = soap.beep
+registry.nid.uri.schemes.soap.beeps = soap.beeps
+registry.nid.uri.schemes.tel = tel
+registry.nid.uri.schemes.telnet = telnet
+registry.nid.uri.schemes.tip = tip
+registry.nid.uri.schemes.urn = urn
+registry.nid.uri.schemes.vemmi = vemmi
+registry.nid.uri.schemes.wais = wais
+registry.nid.uri.schemes.z39.50r = z39.50r
+registry.nid.uri.schemes.z39.50s = z39.50s
+
+# Uniform resource identifier URN NIDs
+# Only a subset of the IANA registry (see URN NIDs below) is registered here
+registry.nid.uri.urn.nids = \
+  registry.nid.uri.urn.nid.ISBN registry.nid.uri.urn.nid.ISSN
+
+registry.nid.uri.urn.nid.IETF = IETF
+registry.nid.uri.urn.nid.ISBN = ISBN
+registry.nid.uri.urn.nid.ISSN = ISSN
+registry.nid.uri.urn.nid.NBN = NBN
+registry.nid.uri.urn.nid.NEWSML = NEWSML
+registry.nid.uri.urn.nid.OASIS = OASIS
+registry.nid.uri.urn.nid.OID = OID
+registry.nid.uri.urn.nid.PIN = PIN
+registry.nid.uri.urn.nid.XMLORG = XMLORG
+registry.nid.uri.urn.nid.publicid = publicid
+registry.nid.uri.urn.nid.urn-1 = urn-1
+registry.nid.uri.urn.nid.urn-2 = urn-2
+registry.nid.uri.urn.nid.urn-3 = urn-3
+registry.nid.uri.urn.nid.urn-4 = urn-4
+
+# Generic resource identifier services
+registry.nid._ri.services = \
+  registry.nid._ri.services.oboe
+
+registry.nid._ri.services.oboe = oboe
+
+# Oboe resource identifier services
+registry.nid._ri.services.oboe = \
+  registry.nid._ri.services.oboe.to_s \
+  registry.nid._ri.services.oboe.to_excel \
+  registry.nid._ri.services.oboe.to_rdf \
+  registry.nid._ri.services.oboe.to_query \
+  registry.nid._ri.services.oboe.to_svg \
+  registry.nid._ri.services.oboe.to_xml \
+  registry.nid._ri.services.oboe.strict \
+  registry.nid._ri.services.oboe.no_strict \
+  registry.nid._ri.services.oboe.validate \
+  registry.nid._ri.services.oboe.no_validate \
+  registry.nid._ri.services.oboe.refs \
+  registry.nid._ri.services.oboe.no_refs \
+  registry.nid._ri.services.oboe.trace \
+  registry.nid._ri.services.oboe.debug
+
+registry.nid._ri.services.oboe.to_s = _ri.oboe.to_s
+registry.nid._ri.services.oboe.to_excel = _ri.oboe.to_excel
+registry.nid._ri.services.oboe.to_rdf = _ri.oboe.to_rdf
+registry.nid._ri.services.oboe.to_query = _ri.oboe.to_query
+registry.nid._ri.services.oboe.to_svg = _ri.oboe.to_svg
+registry.nid._ri.services.oboe.to_yads = _ri.oboe.to_yads
+registry.nid._ri.services.oboe.to_xml = _ri.oboe.to_xml
+registry.nid._ri.services.oboe.strict = _ri.oboe.strict
+registry.nid._ri.services.oboe.no_strict = _ri.oboe.no_strict
+registry.nid._ri.services.oboe.validate = _ri.oboe.validate
+registry.nid._ri.services.oboe.no_validate = _ri.oboe.no_validate
+registry.nid._ri.services.oboe.refs = _ri.oboe.refs
+registry.nid._ri.services.oboe.no_refs = _ri.oboe.no_refs
+registry.nid._ri.services.oboe.trace = _ri.oboe.trace
+registry.nid._ri.services.oboe.debug = _ri.oboe.debug
+
+########################################################################
+# Keywords (v.1.0)
+
+registry.keys = \
+  registry.key.adm_set registry.key.adm_tim registry.key.adm_ver \
+  registry.key.ctx_ptr registry.key.ctx_dat registry.key.ref_id  \
+  registry.key.ref_val registry.key.ref_val_fmt registry.key.ref_ptr \
+  registry.key.ref_ptr_fmt registry.key.ref_dat registry.key.rfr_id \
+  registry.key.rfr_ptr registry.key.rfr_ptr_fmt registry.key.rfr_dat \
+  registry.key.rfe_id registry.key.rfe_ptr registry.key.rfe_ptr_fmt \
+  registry.key.rfe_dat registry.key.req_id registry.key.req_ptr \
+  registry.key.req_ptr_fmt registry.key.req_dat registry.key.res_id \
+  registry.key.res_ptr registry.key.res_ptr_fmt registry.key.res_dat \
+  registry.key.srv_id registry.key.srv_ptr registry.key.srv_ptr_fmt
+  registry.key.srv_dat
+
+# Admin
+registry.key.adm_set    = adm_set
+registry.key.adm_tim    = adm_tim
+registry.key.adm_ver    = adm_ver
+
+# ContextObject
+registry.key.ctx_ptr     = ctx_ptr
+registry.key.ctx_dat     = ctx_dat
+
+# Referent
+registry.key.ref_id      = ref_id
+registry.key.ref_val     = ref_val
+registry.key.ref_val_fmt = ref_val_fmt
+registry.key.ref_ptr     = ref_ptr
+registry.key.ref_ptr_fmt = ref_ptr_fmt
+registry.key.ref_dat     = ref_dat
+
+# Referrer
+registry.key.rfr_id      = rfr_id
+registry.key.rfr_ptr     = rfr_ptr
+registry.key.rfr_ptr_fmt = rfr_ptr_fmt
+registry.key.rfr_dat     = rfr_dat
+
+# Referring-Entity
+registry.key.rfe_id      = rfe_id
+registry.key.rfe_ptr     = rfe_ptr
+registry.key.rfe_ptr_fmt = rfe_ptr_fmt
+registry.key.rfe_dat     = rfe_dat
+
+# Requester
+registry.key.req_id      = req_id
+registry.key.req_ptr     = req_ptr
+registry.key.req_ptr_fmt = req_ptr_fmt
+registry.key.req_dat     = req_dat
+
+# Resolver
+registry.key.res_id      = res_id
+registry.key.res_ptr     = res_ptr
+registry.key.res_ptr_fmt = res_ptr_fmt
+registry.key.res_dat     = res_dat
+
+# Service-Type
+registry.key.srv_id      = srv_id
+registry.key.srv_ptr     = srv_ptr
+registry.key.srv_ptr_fmt = srv_ptr_fmt
+registry.key.srv_dat     = srv_dat
+
+########################################################################
+# Keyword Entities (v.1.0)
+
+registry.key.ents = \
+  registry.key.ent.ref registry.key.ent.rfr registry.key.ent.rfe \
+  registry.key.ent.req registry.key.ent.res registry.key.ent.srv
+
+registry.key.ent.ref = ref
+registry.key.ent.rfr = rfr
+registry.key.ent.rfe = rfe
+registry.key.ent.req = req
+registry.key.ent.res = res
+registry.key.ent.srv = srv
+
+########################################################################
+# Keyword Descriptors (v.1.0)
+
+registry.key.dscs = \
+  registry.key.dsc.id registry.key.dsc.val registry.key.dsc.ptr \
+  registry.key.dsc.dat
+
+registry.key.dsc.id  = id
+registry.key.dsc.val = val
+registry.key.dsc.ptr = ptr
+registry.key.dsc.dat = dat
+
+########################################################################
+# Keyword Format Identifiers (v.1.0)
+
+registry.key.fmts = \
+  registry.key.dsc.val_fmt registry.key.dsc.ptr_fmt
+
+registry.key.dsc.val_fmt = val_fmt
+registry.key.dsc.ptr_fmt = ptr_fmt
+
+########################################################################
+# Context names (v.1.0)
+
+registry.ctx.nam.ctx_ptr     = context-pointer
+registry.ctx.nam.ctx_dat     = private-data
+
+########################################################################
+# Entity names (v.1.0)
+
+registry.ent.nams = \
+  registry.ent.nam.ref registry.ent.nam.req registry.ent.nam.res \
+  registry.ent.nam.rfe registry.ent.nam.rfr registry.ent.nam.srv
+
+registry.ent.nam.ref = referent
+registry.ent.nam.req = requester
+registry.ent.nam.res = resolver
+registry.ent.nam.rfe = referring-entity
+registry.ent.nam.rfr = referrer
+registry.ent.nam.srv = service-type
+
+########################################################################
+# Descriptor names (v.1.0)
+
+registry.dsc.nams = \
+  registry.dsc.nam.id registry.dsc.nam.val registry.dsc.nam.ptr \
+  registry.dsc.nam.dat
+
+registry.dsc.nam.id = identifier
+registry.dsc.nam.val = metadata-by-val
+registry.dsc.nam.ptr = metadata-by-ref
+registry.dsc.nam.dat = private-data
+
+########################################################################
+# Namespace identifiers (v.0.1)
+
+registry.nids_01 = \
+  registry.nid_01.bibcode registry.nid_01.doi registry.nid_01.oai \
+  registry.nid_01.pmid
+
+registry.nid_01.bibcode = bibcode
+registry.nid_01.doi     = doi
+registry.nid_01.oai     = oai
+registry.nid_01.pmid    = pmid
+
+########################################################################
+# Keywords (v.0.1)
+
+registry.keys_01 = \
+  registry.key_01.sid registry.key_01.id registry.key_01.pid \
+  registry.key_01.genre registry.key_01.aulast registry.key_01.aufirst \
+  registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
+  registry.key_01.coden registry.key_01.issn registry.key_01.eissn \
+  registry.key_01.isbn registry.key_01.title registry.key_01.stitle \
+  registry.key_01.atitle registry.key_01.volume registry.key_01.part \
+  registry.key_01.issue registry.key_01.spage registry.key_01.epage \
+  registry.key_01.pages registry.key_01.artnum registry.key_01.sici \
+  registry.key_01.bici registry.key_01.ssn registry.key_01.quarter \
+  registry.key_01.date
+ 
+# Origin-Description
+registry.key_01.sid     = sid
+
+# Global-Identifer-Zone
+registry.key_01.id      = id
+
+# Local-Identifer-Zone
+registry.key_01.pid     = pid
+
+# Object-Metadata-Zone Meta-Tags
+registry.key_01.genre   = genre
+registry.key_01.aulast  = aulast
+registry.key_01.aufirst = aufirst
+registry.key_01.auinit  = auinit
+registry.key_01.auinit1 = auinit1
+registry.key_01.auinitm = auinitm
+registry.key_01.coden   = coden
+registry.key_01.issn    = issn
+registry.key_01.eissn   = eissn
+registry.key_01.isbn    = isbn
+registry.key_01.title   = title
+registry.key_01.stitle  = stitle
+registry.key_01.atitle  = atitle
+registry.key_01.volume  = volume
+registry.key_01.part    = part
+registry.key_01.issue   = issue
+registry.key_01.spage   = spage
+registry.key_01.epage   = epage
+registry.key_01.pages   = pages
+registry.key_01.artnum  = artnum
+registry.key_01.sici    = sici
+registry.key_01.bici    = bici
+registry.key_01.ssn     = ssn
+registry.key_01.quarter = quarter
+registry.key_01.date    = date
+ 
+registry.genre_01 = \
+  registry.genre_01.journal registry.genre_01.book \
+  registry.genre_01.conference registry.genre_01.article \
+  registry.genre_01.preprint registry.genre_01.proceeding \
+  registry.genre_01.bookitem
+
+registry.genre_01.journal    = journal
+registry.genre_01.book       = book
+registry.genre_01.conference = conference
+registry.genre_01.article    = article
+registry.genre_01.preprint   = preprint
+registry.genre_01.proceeding = proceeding
+registry.genre_01.bookitem   = bookitem
+
+registry.genre_01.journal.keys = \
+  registry.key_01.coden registry.key_01.issn registry.key_01.eissn \
+  registry.key_01.title registry.key_01.stitle \
+  registry.key_01.volume registry.key_01.part registry.key_01.issue \
+  registry.key_01.sici registry.key_01.ssn registry.key_01.quarter \
+  registry.key_01.date
+ 
+registry.genre_01.book.keys = \
+  registry.key_01.aulast registry.key_01.aufirst \
+  registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
+  registry.key_01.isbn registry.key_01.title registry.key_01.stitle \
+  registry.key_01.volume registry.key_01.part \
+  registry.key_01.ssn registry.key_01.quarter \
+  registry.key_01.date
+ 
+registry.genre_01.conference.keys = \
+  registry.key_01.aulast registry.key_01.aufirst \
+  registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
+  registry.key_01.coden registry.key_01.issn registry.key_01.eissn \
+  registry.key_01.isbn registry.key_01.title registry.key_01.stitle \
+  registry.key_01.volume registry.key_01.part registry.key_01.issue \
+  registry.key_01.sici registry.key_01.ssn registry.key_01.quarter \
+  registry.key_01.date
+ 
+registry.genre_01.article.keys = \
+  registry.key_01.aulast registry.key_01.aufirst \
+  registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
+  registry.key_01.coden registry.key_01.issn registry.key_01.eissn \
+  registry.key_01.title registry.key_01.stitle \
+  registry.key_01.atitle registry.key_01.volume registry.key_01.part \
+  registry.key_01.issue registry.key_01.spage registry.key_01.epage \
+  registry.key_01.pages registry.key_01.artnum registry.key_01.sici \
+  registry.key_01.ssn registry.key_01.quarter registry.key_01.date
+ 
+registry.genre_01.preprint.keys = \
+  registry.key_01.aulast registry.key_01.aufirst \
+  registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
+  registry.key_01.atitle registry.key_01.spage registry.key_01.epage \
+  registry.key_01.pages registry.key_01.artnum registry.key_01.ssn \
+  registry.key_01.quarter registry.key_01.date
+ 
+registry.genre_01.proceeding.keys = \
+  registry.key_01.aulast registry.key_01.aufirst \
+  registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
+  registry.key_01.coden registry.key_01.issn registry.key_01.eissn \
+  registry.key_01.isbn registry.key_01.title registry.key_01.stitle \
+  registry.key_01.atitle registry.key_01.volume registry.key_01.part \
+  registry.key_01.issue registry.key_01.spage registry.key_01.epage \
+  registry.key_01.pages registry.key_01.artnum registry.key_01.sici \
+  registry.key_01.bici registry.key_01.ssn registry.key_01.quarter \
+  registry.key_01.date
+ 
+registry.genre_01.bookitem.keys = \
+  registry.key_01.aulast registry.key_01.aufirst \
+  registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
+  registry.key_01.isbn registry.key_01.title registry.key_01.stitle \
+  registry.key_01.atitle registry.key_01.volume registry.key_01.part \
+  registry.key_01.spage registry.key_01.epage registry.key_01.pages \
+  registry.key_01.artnum registry.key_01.bici registry.key_01.ssn \
+  registry.key_01.quarter registry.key_01.date
+ 
+########################################################################

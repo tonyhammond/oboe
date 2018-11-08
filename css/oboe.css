@@ -1,0 +1,19 @@
+  body { background-color: white }
+  body { color: black }
+  body { font-family: arial, helvetica, sans-serif }
+  body { font-size: 12pt }
+  body { margin: 2em 35px 2em 70px }
+  th { color: '#ff7f00' }
+  td { background-color: '#ffd39b' }
+  td:white { background-color: #ffffff }
+  h1 { color: '#ff7f00' }
+  h1 { font-size: 22pt }
+  h3 { color: '#ff7f00' }
+  h1 { font-family: arial, helvetica, sans-serif }
+  p { font-family: arial, helvetica, sans-serif }
+  td { font-family: arial, helvetica, sans-serif }
+  hr { font-family: arial, helvetica, sans-serif }
+  a { text-decoration: underline; color: '#ff7f00' }
+  code { color: '#000000' }
+  b { color: '#ff7f00' }
+~

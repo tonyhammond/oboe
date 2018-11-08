@@ -1,0 +1,15 @@
+  body { background-color: white }
+  body { color: black }
+  body { font-family: arial, helvetica, sans-serif }
+  body { font-size: 12pt }
+  body { margin: 2em 35px 2em 70px }
+  th { color: 'darkorange' }
+  td { background-color: '#ffbb22' }
+  td:white { background-color: #ffffff }
+  h1 { color: 'darkorange' }
+  h1 { font-size: 22pt }
+  h3 { color: 'darkorange' }
+  h1 { font-family: arial, helvetica, sans-serif }
+  p { font-family: arial, helvetica, sans-serif }
+  td { font-family: arial, helvetica, sans-serif }
+  hr { font-family: arial, helvetica, sans-serif }

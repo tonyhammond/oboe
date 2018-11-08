@@ -1,0 +1,121 @@
+content-type: text/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<yads>
+<!--
+# OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = 1
+
+# Context-Object
+
+  # Referent
+  ref_id = uri:urn:ISBN:1861004516
+
+  # Referrer
+  rfr_id = ori:dns:amazon.com
+
+  # Referring-entity
+  rfe_id = uri:http://www.amazon.com/exec/obidos/ASIN/1861004516
+
+  # Requester
+  req_id = _ri:104-0011434-4639158
+
+  # Service-type
+  srv_id = _ri:addToCart
+-->
+  <nest>
+    <!-- OpenURL -->
+    <resource/>
+    <collection>
+  <nest>
+    <!-- Profile -->
+    <property type="directive">oboe:</property>
+    <resource>http://www2.elsevier.co.uk/~tony/oboe.rdf</resource>
+    <collection>
+      <item>
+        <!-- Administration -->
+        <property type="type">oboe:administration</property>
+        <collection>
+          <item>
+            <!-- Version -->
+            <property type="type">oboe:version</property>
+            <data>1</data>
+          </item>
+        </collection>
+      </item>
+      <item>
+        <!-- Context-Object -->
+        <property type="type">oboe:context-object</property>
+        <collection>
+          <item>
+            <!-- Referent -->
+            <property type="type">oboe:referent</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>uri:urn:ISBN:1861004516</data>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Referrer -->
+            <property type="type">oboe:referrer</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>ori:dns:amazon.com</data>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Referring-entity -->
+            <property type="type">oboe:referring-entity</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>uri:http://www.amazon.com/exec/obidos/ASIN/1861004516</data>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Requester -->
+            <property type="type">oboe:requester</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>_ri:104-0011434-4639158</data>
+              </item>
+            </collection>
+          </item>
+          <item>
+            <!-- Service-type -->
+            <property type="type">oboe:service-type</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:identifier</property>
+                <data>_ri:addToCart</data>
+              </item>
+            </collection>
+          </item>
+        </collection>
+      </item>
+    </collection>
+  </nest>
+    </collection>
+  </nest>
+</yads>

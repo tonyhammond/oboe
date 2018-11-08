@@ -1,0 +1,68 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>new (Oboe::OpenURL)</title>
+<link rel=StyleSheet href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body bgcolor="white">
+<pre><span class="cmt"># File oboe.rb, line 266</span>
+  <span class="kw">def</span> initialize(*args)
+
+    @hArgs = {}
+    @hArgs = args[0]
+
+    <span class="cmt"># Is this in OpenURL v1.0 format?</span>
+    <span class="kw">if</span> @hArgs.has_key?(<span class="str">'adm_ver'</span>)
+      @ver = <span class="str">&quot;1.0&quot;</span>
+    <span class="kw">else</span>
+      <span class="cmt"># assume this is in OpenURL 0.1 format</span>
+      <span class="cmt"># and convert to OpenURL 1.0 format</span>
+      nKeys = 0; byVal = <span class="kw">false</span>
+      @hArgs.each <span class="kw">do</span> |key, vals|
+        <span class="kw">if</span> @@hKeys0_1.has_key?(key)
+          nKeys += 1
+          byVal = <span class="kw">true</span> <span class="kw">if</span> @@hKeys0_1[key] &gt; 0 
+        <span class="kw">end</span>
+      <span class="kw">end</span>
+      <span class="kw">if</span> nKeys &gt; 0
+        @ver = <span class="str">&quot;0.1&quot;</span>
+        @hArgs[<span class="str">'adm_ver'</span>] = <span class="str">&quot;Z39.00-00&quot;</span>
+        @hArgs.each <span class="kw">do</span> |key, vals|
+          _vals = []
+          <span class="kw">if</span> key == <span class="str">'id'</span>
+            vals.each <span class="kw">do</span> |val|
+              nam = &quot;#{val}&quot;
+              nam.sub!(<span class="re">/(\w+):(.*)/</span>, <span class="str">'\1'</span>)
+              val.sub!(<span class="re">/(\w+):(.*)/</span>, <span class="str">'\2'</span>)
+              <span class="kw">if</span> @@hNIDs0_1.has_key?(nam)
+                _vals.push(&quot;openurl:#{nam}:#{val}&quot;)
+              <span class="kw">end</span>
+            <span class="kw">end</span>
+            @hArgs.delete(key); @hArgs[<span class="str">'ref_id'</span>] = _vals
+          <span class="kw">end</span>
+          <span class="kw">if</span> key == <span class="str">'sid'</span>
+            vals.each <span class="kw">do</span> |val|
+              _vals.push(&quot;openurl:dbid:#{val}&quot;)
+            <span class="kw">end</span>
+            @hArgs.delete(key); @hArgs[<span class="str">'rfr_id'</span>] = _vals
+          <span class="kw">end</span>
+          <span class="kw">if</span> key == <span class="str">'pid'</span>
+            @hArgs.delete(key); @hArgs[<span class="str">'ref_pid'</span>] = vals
+          <span class="kw">end</span>
+        <span class="kw">end</span>
+        <span class="cmt"># If &quot;genre&quot; is sepcified then we need to map that to the</span>
+        <span class="cmt"># by-val format type - otherwise we'll need to infer it</span>
+        <span class="cmt"># from the best match of meta-tags to format type</span>
+        @hArgs[<span class="str">'ref_valfmt'</span>] = <span class="str">'jarticle'</span> <span class="kw">if</span> byVal
+      <span class="kw">else</span>
+        <span class="cmt"># exit</span>
+      <span class="kw">end</span>
+    <span class="kw">end</span>
+
+    <span class="kw">return</span> <span class="kw">self</span>
+
+  <span class="kw">end</span></pre>
+</body>
+</html>

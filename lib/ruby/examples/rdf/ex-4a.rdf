@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<rdf:RDF xmlns:isa="doi:1014/yads-schema-2002-04-03#" xmlns:has="doi:1014/yads-schema-2002-04-03#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about="">
+<!--
+# OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = Z39.00-00
+
+# Context-Object
+
+  ctx_dat = cr_setVer = 01 & cr_key = cx1Dk0f1ud58jlKfdsAifhe23swkHG^s & cr_keyVer = 01 & cr_datTim = 20020220142003 & cr_src = idealibrary.com & cr_srcDOI = 10.1006/mthe.2000.0239 & cr_rtnURL = http://www.idealibrary.com/links/doi/10.1006/mthe.2000.0239/ref & cr_rtnTxt = Click Here & cr_srvTyp = html & cr_workId = Molecular Therapy & cr_pub = Academic Press
+
+  # Referent
+  ref_id = ori:doi:10.1126/science.275.5304.1320
+  ref_id = ori:pmid:9036860
+
+  # Referrer
+  rfr_id = ori:dbid:elsevier.com:ScienceDirect
+
+  # Referring-Entity
+  rfe_id = ori:doi:10.1006/mthe.2000.0239
+  rfe_id = uri:urn:ISSN:1525-0016
+-->
+<rdf:type>isa:Nest</rdf:type>
+<!-- OpenURL -->
+<has:resource rdf:resource=""/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Nest</rdf:type>
+<!-- Profile -->
+<has:directive>oboe:</has:directive>
+<has:resource rdf:resource="http://www2.elsevier.co.uk/~tony/oboe/oboe.rdf"/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Administration -->
+<has:type>oboe:administration</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Version -->
+<has:type>oboe:administration:version</has:type>
+<has:resource rdf:resource="data:,Z39.00-00"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Context-Object -->
+<has:type>oboe:context</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Context-Object Private Data -->
+<has:type>oboe:private-data</has:type>
+<has:resource rdf:resource="cr_setVer = 01 &amp; cr_key = cx1Dk0f1ud58jlKfdsAifhe23swkHG^s &amp; cr_keyVer = 01 &amp; cr_datTim = 20020220142003 &amp; cr_src = idealibrary.com &amp; cr_srcDOI = 10.1006/mthe.2000.0239 &amp; cr_rtnURL = http://www.idealibrary.com/links/doi/10.1006/mthe.2000.0239/ref &amp; cr_rtnTxt = Click Here &amp; cr_srvTyp = html &amp; cr_workId = Molecular Therapy &amp; cr_pub = Academic Press"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referent -->
+<has:type>oboe:entity:referent</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:descriptor:identifier</has:type>
+<has:resource rdf:resource="data:,ori:doi:10.1126/science.275.5304.1320"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:descriptor:identifier</has:type>
+<has:resource rdf:resource="data:,ori:pmid:9036860"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referrer -->
+<has:type>oboe:entity:referrer</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:descriptor:identifier</has:type>
+<has:resource rdf:resource="data:,ori:dbid:elsevier.com:ScienceDirect"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referring-Entity -->
+<has:type>oboe:entity:referring-entity</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:descriptor:identifier</has:type>
+<has:resource rdf:resource="data:,ori:doi:10.1006/mthe.2000.0239"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:descriptor:identifier</has:type>
+<has:resource rdf:resource="data:,uri:urn:ISSN:1525-0016"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:Description>
+</rdf:RDF>

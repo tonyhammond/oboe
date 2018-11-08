@@ -1,0 +1,90 @@
+
+digraph yads { 
+
+graph [
+  fontname=arial, fontsize=24
+  label="YADS - A Description Service"
+];
+node [
+  fontname=arial, fontsize=11, fontcolor=black,
+  style=filled, color=cornflowerblue,
+];
+edge [
+  fontname=arial, fontsize=11, fontcolor=black,
+  style=filled, color=lightblue,
+];
+rankdir=TB;
+
+subgraph cluster_1 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Nest - OpenURL Resolver + Query";
+
+  ":_1" [label="OpenURL", color=lightgoldenrod];
+  ":_1" -> "http://openurl.org/resolver?" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+  ":_1" -> ":_2" [label="has:collection", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#collection"];
+  ":_2" [label="rdf:Bag", color=lightgrey];
+
+  "http://openurl.org/resolver?" [color=plum, URL="http://openurl.org/resolver?"];
+  ":_2" [label="rdf:Bag", color=lightgrey, URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"];
+  ":_2" -> ":_3" [label="rdf:_1", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_1"];
+":_3" [label="isa:Item"]
+  ":_2" -> ":_4" [label="rdf:_2", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_2"];
+":_4" [label="isa:Item"]
+  ":_2" -> ":_5" [label="rdf:_3", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_3"];
+":_5" [label="isa:Item"]
+  ":_2" -> ":_6" [label="rdf:_4", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_4"];
+":_6" [label="isa:Item"]
+
+subgraph cluster_3 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referent";
+
+  ":_3" [label="ref_id", color=lightgoldenrod];
+  ":_3" -> "data:,issn:1090-3801" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,issn:1090-3801" [color=plum, URL="data:,issn:1090-3801"];
+}
+
+subgraph cluster_4 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referer";
+
+  ":_4" [label="rfr_id", color=lightgoldenrod];
+  ":_4" -> "data:,local:ERL:ULRICH" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,local:ERL:ULRICH" [color=plum, URL="data:,local:ERL:ULRICH"];
+}
+
+subgraph cluster_5 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Requester";
+
+  ":_5" [label="req_reffmt", color=lightgoldenrod];
+  ":_5" -> "data:,local:dirformat" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,local:dirformat" [color=plum, URL="data:,local:dirformat"];
+}
+
+subgraph cluster_6 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Requester";
+
+  ":_6" [label="req_ptr", color=lightgoldenrod];
+  ":_6" -> "ldap://an.ldap.edu/cn=joe doe" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "ldap://an.ldap.edu/cn=joe doe" [color=plum, URL="ldap://an.ldap.edu/cn=joe doe"];
+}
+
+}
+
+}

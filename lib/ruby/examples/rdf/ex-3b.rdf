@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<rdf:RDF xmlns:isa="doi:1014/yads-schema-2002-04-03#" xmlns:has="doi:1014/yads-schema-2002-04-03#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about="">
+<!--
+# OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = Z39.00-00
+
+# Context-Object
+
+  # Referent
+  ref_id = ori:pmid:11823195
+  ref_val = 
+  ref_val_fmt = ori:schema:jarticle
+  date = 2002-02
+  stitle = Appl Environ Microbiol
+  issue = 2
+  volume = 68
+  aulast = Sturino
+-->
+<rdf:type>isa:Nest</rdf:type>
+<!-- OpenURL -->
+<has:resource rdf:resource=""/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Nest</rdf:type>
+<!-- Profile -->
+<has:directive>oboe:</has:directive>
+<has:resource rdf:resource="http://www2.elsevier.co.uk/~tony/oboe/oboe.rdf"/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Administration -->
+<has:type>oboe:administration</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Version -->
+<has:type>oboe:administration:version</has:type>
+<has:resource rdf:resource="data:,Z39.00-00"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Context-Object -->
+<has:type>oboe:context</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Referent -->
+<has:type>oboe:entity:referent</has:type>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<!-- Identifier -->
+<has:type>oboe:descriptor:identifier</has:type>
+<has:resource rdf:resource="data:,ori:pmid:11823195"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Nest</rdf:type>
+<!-- Metadata-By-Val -->
+<has:type>oboe:descriptor:metadata-by-val</has:type>
+<has:resource rdf:resource="data:,ori:schema:jarticle"/>
+<has:collection>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>date</has:type>
+<has:resource rdf:resource="data:,2002-02"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>stitle</has:type>
+<has:resource rdf:resource="data:,Appl%20Environ%20Microbiol"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>issue</has:type>
+<has:resource rdf:resource="data:,2"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>volume</has:type>
+<has:resource rdf:resource="data:,68"/>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<rdf:type>isa:Item</rdf:type>
+<has:type>aulast</has:type>
+<has:resource rdf:resource="data:,Sturino"/>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:li>
+</rdf:Bag>
+</has:collection>
+</rdf:Description>
+</rdf:RDF>

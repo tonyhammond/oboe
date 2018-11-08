@@ -1,0 +1,19 @@
+#!/usr/bin/tcsh
+
+popd
+
+foreach f (`ls ex-3*[a-z]\.xml`)
+
+  # build typed node SVG graphs
+  xalan -l -xsl ../../yds2dot.xsl -in $f -out `basename $f .xml`.dot 
+  perl -pi.0 -e 's|&|&amp;|g' `basename $f .xml`.dot 
+  dot -Tsvg `basename $f .xml`.dot -o `basename $f .xml`.svg
+  perl -pi.0 -e 's|(font-size:)14.00|${1}11.00|g' `basename $f .xml`.svg
+  perl -pi.0 -e 's|(\<a xlink:href=\"(http:.*?)\")|$1 target="_blank" onmouseover="show_status(\x27$2\x27);"|' `basename $f .xml`.svg
+  perl -pi.0 -e 's|(\<a xlink:href=\")data:,*(.*?)\"|$1\" onclick="show_data(\x27$2\x27);" onmouseover="show_status(\x27data:,$2\x27);"|' `basename $f .xml`.svg
+  perl -pi.0 -e 's|\r||g' `basename $f .xml`.svg
+  \rm -f `basename $f .xml`.dot.0
+  ../../make-html `basename $f .xml`.svg
+  \rm -f `basename $f .xml`.svg.0
+
+end

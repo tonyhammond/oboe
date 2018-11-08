@@ -1,0 +1,132 @@
+
+digraph yads { 
+
+graph [
+  fontname=arial, fontsize=24
+  label="YADS - A Description Service"
+];
+node [
+  fontname=arial, fontsize=11, fontcolor=black,
+  style=filled, color=cornflowerblue,
+];
+edge [
+  fontname=arial, fontsize=11, fontcolor=black,
+  style=filled, color=lightblue,
+];
+rankdir=TB;
+
+subgraph cluster_1 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Nest - OpenURL Resolver + Query";
+
+  ":_1" [label="OpenURL", color=lightgoldenrod];
+  ":_1" -> "http://openurl.org/resolver?" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+  ":_1" -> ":_2" [label="has:collection", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#collection"];
+  ":_2" [label="rdf:Bag", color=lightgrey];
+
+  "http://openurl.org/resolver?" [color=plum, URL="http://openurl.org/resolver?"];
+  ":_2" [label="rdf:Bag", color=lightgrey, URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"];
+  ":_2" -> ":_3" [label="rdf:_1", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_1"];
+":_3" [label="isa:Item"]
+  ":_2" -> ":_4" [label="rdf:_2", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_2"];
+":_4" [label="isa:Item"]
+  ":_2" -> ":_5" [label="rdf:_3", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_3"];
+":_5" [label="isa:Item"]
+  ":_2" -> ":_6" [label="rdf:_4", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_4"];
+":_6" [label="isa:Item"]
+  ":_2" -> ":_7" [label="rdf:_5", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_5"];
+":_7" [label="isa:Item"]
+  ":_2" -> ":_8" [label="rdf:_6", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_6"];
+":_8" [label="isa:Item"]
+  ":_2" -> ":_9" [label="rdf:_7", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#_7"];
+":_9" [label="isa:Item"]
+
+subgraph cluster_3 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referent";
+
+  ":_3" [label="ref_valfmt", color=lightgoldenrod];
+  ":_3" -> "data:,article" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,article" [color=plum, URL="data:,article"];
+}
+
+subgraph cluster_4 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referent";
+
+  ":_4" [label="aulast", color=lightgoldenrod];
+  ":_4" -> "data:,Sturino" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,Sturino" [color=plum, URL="data:,Sturino"];
+}
+
+subgraph cluster_5 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referent";
+
+  ":_5" [label="auinit", color=lightgoldenrod];
+  ":_5" -> "data:,JM" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,JM" [color=plum, URL="data:,JM"];
+}
+
+subgraph cluster_6 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referent";
+
+  ":_6" [label="stitle", color=lightgoldenrod];
+  ":_6" -> "data:,Appl%20Eviron%20Microbi...l" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,Appl%20Eviron%20Microbi...l" [color=plum, URL="data:,Appl%20Eviron%20Microbiol"];
+}
+
+subgraph cluster_7 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referent";
+
+  ":_7" [label="volume", color=lightgoldenrod];
+  ":_7" -> "data:,68" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,68" [color=plum, URL="data:,68"];
+}
+
+subgraph cluster_8 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referent";
+
+  ":_8" [label="issue", color=lightgoldenrod];
+  ":_8" -> "data:,2" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,2" [color=plum, URL="data:,2"];
+}
+
+subgraph cluster_9 {
+
+  style=dashed; color=lightgrey;
+  fontname=arial; fontsize=11;
+  fontcolor="black"; label="Item - Referent";
+
+  ":_9" [label="date", color=lightgoldenrod];
+  ":_9" -> "data:,2002-02" [label="has:resource", URL="http://www2.elsevier.co.uk/~tony/1014/yads-schema-2002-04-03#resource"];
+
+  "data:,2002-02" [color=plum, URL="data:,2002-02"];
+}
+
+}
+
+}

@@ -1,0 +1,54 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Open Issues</title>
+</head>
+<body>
+<h1><i>Oboe</i> ~ Open Issues</h1>
+<hr>
+All issues recorded below are still open and subject to change. They have not
+yet been approved by the Committee.
+<p>
+<h3>EBNF</h3>
+This resolver makes use of the following modifications from the published EBNF:
+<ul>
+<li>The version number "<code>Z39.00-00</code>" is used in place of "<code>Z39.NN-NN</code>". Not addressed is the notion of using the version number as a flag to 
+indicate the type of encoding: name/value or XML.
+<p>
+<li>The namespace ID "<code>_ri</code>" is used in place of the "<code>local</code>" namespace ID. Rationale is to acknowledge that this is a foreign resource identifier and to maintain a resource identifier progression
+( "<code>uri</code>" - uniform,
+"<code>ori</code>" - openurl, and
+"<code>_ri</code>"  - foreign).
+<p>
+<li>Format identifiers now use identifiers - rather than names - within any of the resource identifier namespaces.
+<p>
+<li>Inline metadata is flagged with a "<code>ref_val</code>" parameter, which
+complements the "<code>ref_ptr</code>" parameter that identifies a remote
+instance.
+The "<code>ref_val</code>" parameter is merely declarative and does not 
+need to take any value although if one is present "<code>*</code>" is suggested. This is the missing descriptor key which previously was inferred by the 
+presence of inline metadata.
+<p>
+<li>Metadata format identifiers are now of the form "<code>ref_val_fmt</code>" for inline metadata format identifier, and
+"<code>ref_ptr_fmt</code>" for remote metadata format identifier. The
+second suffix ("<code>_fmt</code>") marks
+off format identifier from descriptor.
+<p>
+<li>Private data descriptors have key
+suffix "<code>dat</code>" instead of "<code>pid</code>". Rationale is that
+private <i>identifiers</i> - rather than data - are now accommodated under the identifier descriptor
+with a foreign namespace ID ("<code>_ri</code>").
+The same suffix is used for the context-object private data.
+</ul>
+<p>
+<h3>XML</h3>
+<ul>
+<li>The XML uses element name "<code>&lt;metadata-by-val&gt;</code>"
+rather than "<code>&lt;metadata&gt;</code>" to complement element name
+"<code>&lt;metadata-by-ref&gt;</code>".
+<li>The element name "<code>&lt;context-object-private-data&gt;</code>"
+is now more simply "<code>&lt;private-data&gt;</code>".
+</ul>
+</body>
+
+</html>

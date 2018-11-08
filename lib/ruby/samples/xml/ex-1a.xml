@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Oboe/Ruby - OpenURL Based Open Environment
+
+  Author: Tony Hammond <t.hammond@elsevier.com>
+  Date:   June 22, 2002
+-->
+
+<yads>
+<!--
+# OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = Z39.00-00
+
+# Context-Object
+
+  # Referent
+  ref_id = ori:doi:10.1045/july99-caplan
+  ref_val = 
+  ref_val_fmt = ori:schema:jarticle
+  issn = 10829873
+  issue = 7/8
+  volume = 5
+  aulast = caplan
+  aufirst = priscilla
+-->
+  <nest>
+    <!-- OpenURL -->
+    <resource/>
+    <collection>
+  <nest>
+    <!-- Profile -->
+    <property type="directive">oboe:</property>
+    <resource>http://www2.elsevier.co.uk/~tony/oboe/oboe.rdf</resource>
+    <collection>
+      <item>
+        <!-- Administration -->
+        <property type="type">oboe:administration</property>
+        <collection>
+          <item>
+            <!-- Version -->
+            <property type="type">oboe:administration:version</property>
+            <data>Z39.00-00</data>
+          </item>
+        </collection>
+      </item>
+      <item>
+        <!-- Context-Object -->
+        <property type="type">oboe:context</property>
+        <collection>
+          <item>
+            <!-- Referent -->
+            <property type="type">oboe:entity:referent</property>
+            <collection>
+              <item>
+                <!-- Identifier -->
+                <property type="type">oboe:descriptor:identifier</property>
+                <data>ori:doi:10.1045/july99-caplan</data>
+              </item>
+              <nest>
+                <!-- Metadata-By-Val -->
+                <property type="type">oboe:descriptor:metadata-by-val</property>
+                <data>ori:schema:jarticle</data>
+                <collection>
+                  <item>
+                    <property type="type">issn</property>
+                    <data>10829873</data>
+                  </item>
+                  <item>
+                    <property type="type">issue</property>
+                    <data>7/8</data>
+                  </item>
+                  <item>
+                    <property type="type">volume</property>
+                    <data>5</data>
+                  </item>
+                  <item>
+                    <property type="type">aulast</property>
+                    <data>caplan</data>
+                  </item>
+                  <item>
+                    <property type="type">aufirst</property>
+                    <data>priscilla</data>
+                  </item>
+                </collection>
+              </nest>
+            </collection>
+          </item>
+        </collection>
+      </item>
+    </collection>
+  </nest>
+    </collection>
+  </nest>
+</yads>

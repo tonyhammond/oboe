@@ -1,0 +1,18 @@
+  body { background-color: white }
+  body { color: black }
+  body { font-family: arial, helvetica, sans-serif }
+  body { font-size: 12pt }
+  body { margin: 2em 35px 2em 70px }
+  th { color: '#ee6363' }
+  td { background-color: '#d2b48c' }
+  td:white { background-color: '#ffffff' }
+  h1 { color: '#ee6363' }
+  h1 { font-size: 22pt }
+  h3 { color: '#ee6363' }
+  h1 { font-family: arial, helvetica, sans-serif }
+  p { font-family: arial, helvetica, sans-serif }
+  td { font-family: arial, helvetica, sans-serif }
+  hr { font-family: arial, helvetica, sans-serif }
+  a { text-decoration: underline; color: '#ee6363' }
+  code { color: '#000000' }
+  b { color: '#ee6363' }

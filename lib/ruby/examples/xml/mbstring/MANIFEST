@@ -1,0 +1,4 @@
+MANIFEST
+README.ja
+extconf.rb
+mbstring.c

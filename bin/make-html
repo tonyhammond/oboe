@@ -1,0 +1,68 @@
+#!/usr/bin/perl
+
+$f = $ARGV[0];
+$name = $f; $name =~ s/\.svg//;
+
+$htm = $name . ".html";
+$svg = $name . ".svg";
+
+print "Making \"$htm\"\n";
+open F, "$f";
+while (<F>) {
+  /\<svg / && do {
+    /width="(\d+)px" height="(\d+)px"/;
+    $w = $1; $h = $2;
+    open F_, ">$htm";
+    while (<DATA>) {
+      /SVG/ && do {
+        s/(href=)""\>(D)/$1"..\/d\/$name.d">$2/i;
+        s/(href=)""\>(RDF)/$1"..\/rdf\/$name.rdf">$2/i;
+        s/(href=)""\>(XML)/$1"..\/xml\/$name.xml">$2/i;
+      };
+      /\<embed / && do {
+        s/(src=)""/$1"$svg"/;
+        s/(width=)""/$1"$w"/;
+        s/(height=)""/$1"$h"/;
+      };
+      print F_;
+    }
+    close F_;
+    last;
+  };
+}
+close F;
+
+__END__
+<html>
+<head>
+<link href="css/yads.css" type=text/css rel=stylesheet>
+<script>
+function show_data(msg)
+{
+  var w = window.open("", "data", "resizable,status,height=50,width=400");
+  w.focus();
+  w.document.open("text/html");
+  w.document.writeln("<tt>");
+  w.document.writeln(decodeURIComponent(msg));
+  w.document.writeln("</tt>");
+  w.document.close();
+  return true;
+}
+function show_status(msg)
+{
+  status=msg;
+  return true;
+}
+</script>
+</head>
+<body>
+[ yads: SVG (<a href="">D<a>, <a href="">RDF</a>, <a href="">XML</a>) ]
+<center>
+<embed src="" width="" height=""
+       type="image/svg-xml" name="SVGEmbed"
+       pluginspace="http://www.adobe.com/svg/viewer/install/">
+</center>
+<p>
+Copyright &copy; 2002 Elsevier Science Ltd. All rights reserved. 
+</body>
+</html>

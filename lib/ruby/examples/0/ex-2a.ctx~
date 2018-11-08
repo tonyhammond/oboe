@@ -1,0 +1,9 @@
+# Example 2
+ 
+  adm_ver = Z39.00-00
+  adm_tim = 2002-03-20T13:05:54Z
+  ref_id = ori:isbn:1861004516
+  req_id = _ri:104-0011434-4639158
+  rfr_id = ori:dns:amazon.com
+  rfe_id = uri:http://www.amazon.com/exec/obidos/ASIN/1861004516
+  srv_id = _ri:addToCart

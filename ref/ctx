@@ -1,0 +1,24 @@
+
+  <referent>
+   <id type="openurl">doi:10.1045/july99-caplan</id>
+   <metadata>
+     <ja:jarticle xmlns:ja="http://www.niso.org/OpenURL/jarticle/" 
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                  xsi:schemaLocation="http://www.niso.org/OpenURL/jarticle/ 
+                  http://lib-www.lanl.gov/~herbertv/niso/jarticle.xsd">
+      <ja:ISSN>10829873</ja:ISSN>
+      <ja:volume>5</ja:volume>
+      <ja:issue>7/8</ja:issue>
+      <ja:aulast>caplan</ja:aulast>
+      <ja:aufirst>priscilla</ja:aufirst>
+      <ja:atitle>Reference Linking for Journal Articles</ja:atitle>
+     </ja:jarticle>
+    </metadata>
+   </referent>
+   <referrer>
+    <id type="openurl">dbid:dlib.org:D-Lib Magazine</id>
+   </referrer>
+   <referring-entity>
+    <id type="openurl">doi:10.1045/march2001-vandesompel</id>
+   </referring-entity>
+

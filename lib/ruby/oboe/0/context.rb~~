@@ -1,0 +1,117 @@
+class Context
+
+  def initialize(referent)
+    @context = {}
+  end
+
+end
+
+class Entity
+
+  def initialize(entity)
+    @entity = {}
+  end
+
+  def get_descriptor(desc)
+  
+    if @@descriptors.include?(desc)
+      return @entity[desc]
+    end
+
+  end
+
+  def set_descriptor(desc, val)
+  
+    if @@descriptors.include?(desc)
+      @entity[desc].push(val) 
+    end
+
+  end
+
+end
+
+class Descriptor
+
+  def initialize(entity)
+    @descriptor = {}
+  end
+
+end
+
+ref = "http://www.this.com/1234"
+rfr = "http://localhost/oboe/parser.cgi"
+c1 = ContextObject.new(ID, ref)
+c2 = ContextObject.new(ID, ref)
+srv1 = "_ri:to_s"
+srv2 = "_ri:to_xml"
+c1.set_entity(REFERRER).set_descriptor(ID, rfr)
+c1.set_referrer.set_id(rfr)
+c1.set_referring_entity.set_id(rfr)
+print c1.get_referring_entity.get_id(rfr)
+
+c1.set_entity(REFERRER).set_descriptor(ID, rfr)
+c1.set_entity(SERVICE_TYPE).set_descriptor(ID, srv1)
+c2.set_entity(SERVICE_TYPE).set_descriptor(ID, srv2)
+if c1.equals(c2)
+  print c1.to_xml
+else
+  print c2.to_s
+end
+c2 = c1.copy
+
+  # Entity types
+  REFERENT = 0
+  REFERRER = 1
+  REFERRING_ENTITY = 2
+  REQUESTER = 3
+  RESOLVER = 4
+  SERVICE_TYPE = 5
+
+  # Descriptor types
+  ID = 0 
+  METADATA_BY_VAL = 1 
+  METADATA_BY_REF = 2 
+  PRIVATE_DATA = 3 
+
+id
+valfmt
+reffmt
+pid
+
+########################################################################
+# srv_id = o.get_service_type(ID)
+# srv = o.get_service_type(FMT_BY_VAL)
+# srv = o.get_service_type(ID)
+#
+# srv = o.get_entity(SERVICE_TYPE)
+# srv_id = srv.get_descriptor(ID)
+#
+# ctx = ContextObject.new
+# srv_id = ctx.get_entity(SERVICE_TYPE).get_descriptor(ID)
+# srv_ids = ctx.get_entity(SERVICE_TYPE).get_descriptors(ID)
+#
+# srv_id = "_ri:to_xml"
+#
+# srv = o.get_service_type(ID)
+# srv = o.get_service_type(ID)
+# srv = o.get_service_type(ID)
+
+  def get_service_type(*descriptor)
+
+    if descriptor.length > 0
+      
+      case descriptor[0]
+
+        when "ID"
+          return @hArgs['srv-id'] if @hArgs.has_key?('srv-id')
+
+        when "PID"
+          return @hArgs['srv-pid'] if @hArgs.has_key?('srv-pid')
+
+      end
+
+    end
+
+  end
+
+########################################################################

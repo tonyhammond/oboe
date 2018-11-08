@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  YADS - OpenURL Example 4a (see ex-4.xml for example case)
+
+  ==
+
+  a) Unencoded OpenURL (ignore whitespace):
+  
+  http://openurl.org/resolver?
+    & ref_id  = doi:10.1126/science.275.5304.1320
+    & rfr_id  = dns:crossref.org:idealibrary.com
+    & rfe_id  = doi:10.1006/mthe.2000.0239
+    & rfe_id  = issn:1525-0016
+    & adm_ver = openurl.1.0
+    & adm_tim = 2002-02-20T14:20:03Z
+    & adm_pid = cr_setVer , 01 ;
+                cr_key , cx1Dk0f1ud58jlKfdsAifhe23swkHG^s ;
+                cr_keyVer , 01 ;
+                cr_datTim , 20020220142003 ;
+                cr_src , www.idealibrary.com ;
+                cr_srcDOI , 10.1006/mthe.2000.0239 ;
+                cr_rtnURL , http://www.idealibrary.com/links/doi/10.1006/mthe.2000.0239/ref ;
+                cr_rtnTxt , Click Here ;
+                cr_srvTyp, html ;
+                cr_workId , Molecular Therapy ;
+                cr_pub , Academic Press ;
+
+-->
+<yads>
+<nest>
+<!-- OpenURL Resolver + Query -->
+<resource>http://openurl.org/resolver?</resource>
+<collection>
+<item>
+<!-- Referent -->
+<resource>doi:10.1126/science.275.5304.1320</resource>
+<property type="type">ref_id</property>
+</item>
+<item>
+<!-- Referer -->
+<data>dns:crossref.org:idealibray.com</data>
+<property type="type">rfr_id</property>
+</item>
+<item>
+<!-- Referring-Entity -->
+<resource>doi:10.1006/mthe.2000.0239</resource>
+<property type="type">rfe_id</property>
+</item>
+<item>
+<!-- Referring-Entity -->
+<data>uri:urn:ISSN:1525-0016</data>
+<property type="type">rfe_id</property>
+</item>
+<item>
+<!-- Admin -->
+<data>openurl.1.0</data>
+<property type="type">adm_ver</property>
+</item>
+<item>
+<!-- Admin -->
+<data>2002-02-20T14:20:03Z</data>
+<property type="type">adm_tim</property>
+</item>
+<item>
+<!-- Admin -->
+<collection order="sequenced">
+<item>
+<!-- Private -->
+<data>01</data>
+<property type="type">cr_setVer</property>
+</item>
+<item>
+<!-- Private -->
+<data>cx1Dk0f1ud58jlKfdsAifhe23swkHG^s</data>
+<property type="type">cr_key</property>
+</item>
+<item>
+<!-- Private -->
+<data>01</data>
+<property type="type">cr_keyVer</property>
+</item>
+<item>
+<!-- Private -->
+<data>20020220142003</data>
+<property type="type">cr_datTim</property>
+</item>
+<item>
+<!-- Private -->
+<resource>http://www.idealibrary.com</resource>
+<property type="type">cr_src</property>
+</item>
+<item>
+<!-- Private -->
+<resource>doi:10.1006/mthe.2000.0239</resource>
+<property type="type">cr_srcDOI</property>
+</item>
+<item>
+<!-- Private -->
+<resource>http://www.idealibrary.com/links/doi/10.1006/mthe.2000.0239/ref</resource>
+<property type="type">cr_rtnURL</property>
+</item>
+<item>
+<!-- Private -->
+<data>Click Here</data>
+<property type="type">cr_rtnTxt</property>
+</item>
+<item>
+<!-- Private -->
+<data>html</data>
+<property type="type">cr_srvTyp</property>
+</item>
+<item>
+<!-- Private -->
+<data>Molecular Therapy</data>
+<property type="type">cr_workId</property>
+</item>
+<item>
+<!-- Private -->
+<data>Academic Press</data>
+<property type="type">cr_pub</property>
+</item>
+</collection>
+<property type="type">adm_pid</property>
+</item>
+</collection>
+<property type="type">OpenURL</property>
+</nest>
+</yads>

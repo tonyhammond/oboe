@@ -1,0 +1,24 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe</title>
+</head>
+<body>
+<h1>
+Oboe/Java - <i>Simple Resolver</i></h1>
+<hr>
+Below is a complete example of a simple resolver in Java. The <code>toXml()</code>
+method returns an <code>OpenURL</code> object as an XML doument.
+<hr>
+<pre>
+  import 'javax.servlet.*'
+  import 'oboe.lib.*';
+
+  OpenURL o = new OpenURL();
+
+  System.out.print "content-type: application/xml\n\n";
+  System.out.print o.new(args).toXml();
+</pre>
+<hr>
+</body>
+</html>

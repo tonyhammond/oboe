@@ -1,0 +1,21 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>get_descriptors_of_type (Oboe::Entity)</title>
+<link rel=StyleSheet href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body bgcolor="white">
+<pre><span class="cmt"># File context.rb, line 186</span>
+  <span class="kw">def</span> get_descriptors_of_type(type)
+    aDesc = []
+    <span class="kw">if</span> Descriptor::is_descriptor_type?(type)
+      @descriptors.each { |d| aDesc &lt;&lt; d <span class="kw">if</span> d.type == type }
+      <span class="kw">return</span> aDesc
+    <span class="kw">else</span>
+      raise &quot;! Unknown descriptor type: #{type}&quot;
+    <span class="kw">end</span>
+  <span class="kw">end</span></pre>
+</body>
+</html>

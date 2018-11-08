@@ -1,0 +1,9 @@
+# Example 0
+  
+  ref_id = ori:doi:10.1045%2Fjuly99-caplan
+  ref_reffmt = jarticle
+  ref_ptr = uri:http://www2.elsevier.co.uk/~tony/ref.ptr
+  rfr_id = ori:dbid:dlib.org:D-Lib%20Magazine
+  rfe_id = ori:doi:10.1045/march2001-vandesompel
+  adm_ver = Z39.00-00
+

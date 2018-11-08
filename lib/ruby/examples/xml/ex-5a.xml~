@@ -1,0 +1,41 @@
+content-type: text/html
+
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Resolver Error</title>
+</head>
+<body>
+<h1>
+Oboe/Ruby - <i>OpenURL Resolver Error</i></h1>
+<hr>
+<br>
+<b>! Unrecognized schema "_ri:ULRICH" (referent, metadata-by-ref, format: "ref_ptr_fmt")<p>
+Registered schemas in "ori:schema:":
+"book", "book_component", "conf_paper", "conf_proc", "dissertation", "jarticle", "jissue", "journal", "tech_report", "tech_report"</b>
+<pre>
+# OpenURL v.1.0 Parameters:
+
+# Administration
+
+  adm_ver = 1
+
+# Context-Object
+
+  # Referent
+  ref_id = uri:urn:ISSN:1090-3801
+  ref_id = _ri:14587033
+  ref_val = 
+  ref_val_fmt = ori:schema:journal
+  ref_ptr = uri:http://an.erl.edu/query/erl.cgi?usr=generic&pwd=letmein&dbase=ULR03&acc=14587033
+<b>  ref_ptr_fmt = _ri:ULRICH</b>
+
+  # Referrer
+  rfr_id = _ri:ERL:ULRICHD
+
+  # Requester
+  req_ptr = uri:ldap://an.ldap.edu/cn=joe doe
+  req_ptr_fmt = _ri:ULRICH
+</pre>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Service Directives</title>
+</head>
+<body>
+<h1><i>Oboe</i> ~ Service Directives</h1>
+<hr>
+<p>
+The following service directives can be attached
+to the OpenURL to modify the resolution behaviour:
+<p>
+<table width=100% cellpadding=3>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:trace</code></b></td>
+<td width=70%>&nbsp;&nbsp;Turn on trace mode</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;</td>
+<td width=70%>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:strict</code></b></td>
+<td width=70%>&nbsp;&nbsp;Be strict in parsing</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:no_strict</code></b></td>
+<td width=70%>&nbsp;&nbsp;Don't be strict in parsing, eg supply
+admin version and namespace IDs if omitted</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:validate</code></b></td>
+<td width=70%>&nbsp;&nbsp;Validate</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:no_validate</code></b></td>
+<td width=70%>&nbsp;&nbsp;Don't validate</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:parse_uris</code></b></td>
+<td width=70%>&nbsp;&nbsp;Parse all URI strings to check for well-formedness</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:no_parse_uris</code></b></td>
+<td width=70%>&nbsp;&nbsp;Do not parse URI strings</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:refs</code></b></td>
+<td width=70%>&nbsp;&nbsp;Resolve references to external resources</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:no_refs</code></b></td>
+<td width=70%>&nbsp;&nbsp;Don't resolve references to external resources</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;</td>
+<td width=70%>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:forward</code></b></td>
+<td width=70%>&nbsp;&nbsp;Forward OpenURL to another service
+identified with a <b>resolver</b> <b>identifier</b></td>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:keep_context</code></b></td>
+<td width=70%>&nbsp;&nbsp;Keep current context when forwarding to another
+service, but allow additions</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:freeze_context</code></b></td>
+<td width=70%>&nbsp;&nbsp;Preserve current context when forwarding to another
+service, ie no additions/deletions</td>
+</tr>
+<tr valign="top">
+<td width=30%>&nbsp;</td>
+<td width=70%>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:to_s</code></b></td>
+<td>&nbsp;&nbsp;Render OpenURL as a property list</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:to_excel</code></b></td>
+<td>&nbsp;&nbsp;Render OpenURL as an Excel spreadsheet</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:to_query</code></b></td>
+<td>&nbsp;&nbsp;Render OpenURL as a URL querystring</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:to_rdf</code></b></td>
+<td>&nbsp;&nbsp;Render OpenURL as an RDF description</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;&nbsp;<b><code>srv_id=_ri:oboe:to_xml</code></b></td>
+<td>&nbsp;&nbsp;Render OpenURL as an XML document</td>
+</tr>
+</table>
+</body>
+</html>

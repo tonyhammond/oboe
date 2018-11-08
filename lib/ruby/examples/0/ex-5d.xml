@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  YADS - OpenURL Example 5d (see ex-5.xml for example case)
+
+  ==
+
+  a) Unencoded OpenURL (ignore whitespace):
+  
+  http://openurl.org/resolver?
+    & ref_id = local:14587033
+    & rfr_id = local:ERL:ULRICH
+    & req_reffmt = local:dirformat
+    & req_ptr = ldap://an.ldap.edu/cn=joe doe 
+
+-->
+<yads>
+<nest>
+<!-- OpenURL Resolver + Query -->
+<resource>http://openurl.org/resolver?</resource>
+<collection>
+<item>
+<!-- Referent -->
+<data>journal</data>
+<property type="type">ref_valfmt</property>
+</item>
+<item>
+<!-- Referent -->
+<data>Eur J Pain</data>
+<property type="type">stitle</property>
+</item>
+<item>
+<!-- Referer -->
+<data>local:ERL:ULRICH</data>
+<property type="type">rfr_id</property>
+</item>
+<item>
+<!-- Requester -->
+<data>local:dirformat</data>
+<property type="type">req_reffmt</property>
+</item>
+<item>
+<!-- Requester -->
+<resource>ldap://an.ldap.edu/cn=joe doe</resource> 
+<property type="type">req_ptr</property>
+</item>
+</collection>
+<property type="type">OpenURL</property>
+</nest>
+</yads>

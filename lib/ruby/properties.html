@@ -1,0 +1,57 @@
+<html>
+<head>
+<link href="css/oboe.css" type=text/css rel=stylesheet>
+<title>Oboe: Property List</title>
+</head>
+<body>
+<h1><i>Oboe</i> ~ Property List</h1>
+<hr>
+<p>
+An OpenURL property list is just a user-friendly
+means of describing name/value pairs. The main  points about this format are:
+<ul>
+<li>Each property (or name/value pair) is written out on a separate line.
+<p>
+<li>The property name (aka key) is the first 
+complete word at the beginning of the line with possible leading
+whitespace (space or tab characters).
+<p>
+<li>The name may be followed by an
+optional
+delimiter character (either "=" or ":") to separate it from the value
+and there may be
+optional leading and trailing whitespace around the delimiter.
+<p>
+<li>The first
+ non-whitespace character following either the whitespace or delimiter character introduces the property's value which extends until the
+last non-whitespace character on the line and includes any whitespace
+characters contained within.
+<p>
+<li>Empty lines or lines containing only whitespace are ignored, as are any
+lines beginning with a comment character "#".
+<p>
+<li>Line endings may be escaped by preceding the line ending with the
+escape character "\" which allows a long property value to be entered over
+several lines. Leading whitespace on continued lines is disregarded.
+</ul>
+<p>
+Some examples follow:
+<p>
+<pre>
+# A referent identifier
+
+   ref_id= uri:http://www.sciencedirect.com
+
+# A referent metadata format value
+
+title   The title of the paper is too long to fit on one line \
+      so we escape the line ending
+
+# A service identifier (aka a service directive)
+
+ srv_id  : _ri:oboe:to_rdf
+</pre>
+
+</body>
+
+</html>

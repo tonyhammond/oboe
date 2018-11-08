@@ -1,0 +1,54 @@
+
+  if doi_.length > 0
+
+    param = o.to_s; a = []
+    param.split(/\n/).each do |line|
+      uri_.each do |uri|
+        if line =~ /#{uri}/
+          line = "<b>&gt; #{line.strip}</b>"
+        end
+      end
+      a << line
+    end
+    param = a.join("\n")
+
+    print <<-"EOT"
+The DOI Agent found the following DOIs in the current context
+<ul>
+    EOT
+    doi_.each do |doi|
+      print "<li>doi:#{doi}"
+    end
+    print <<-"EOT"
+</ul>
+resolved them to these resources
+<ul>
+    EOT
+    uri_.each do |uri|
+      path, query = uri.split('?')
+      if query
+        uo = OpenURL.new(CGI.parse(query))
+        if uo.is_valid?
+          print "<li>#{uri}<p>\n"
+          print "<b>! Oops. This is an OpenURL. Needs processing:<p>\n"
+          print "<pre>\n"
+          print uo.to_s
+          print "</pre>\n"
+          print "</b>\n"
+        else
+          print "<li>#{uri}"
+        end
+      else
+        print "<li>#{uri}"
+      end
+    end
+    print <<-"EOT"
+</ul>
+and added them in to the context to enrich it.
+<hr>
+<br>
+<pre>
+#{param.to_s}
+</pre>
+    EOT
+  end

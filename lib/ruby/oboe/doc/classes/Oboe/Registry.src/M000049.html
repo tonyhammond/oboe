@@ -1,0 +1,19 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>get_schemes (Oboe::Registry)</title>
+<link rel=StyleSheet href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body bgcolor="white">
+<pre><span class="cmt"># File registry.rb, line 340</span>
+    <span class="kw">def</span> Registry.get_schemes(nid)
+      a = []
+      @@props[<span class="str">'registry.nid.'</span> + nid + <span class="str">'.schemes'</span>].scan(<span class="re">/\S+/</span>) <span class="kw">do</span> |scheme|
+        a &lt;&lt; @@props[scheme]
+      <span class="kw">end</span>
+      <span class="kw">return</span> a
+    <span class="kw">end</span></pre>
+</body>
+</html>

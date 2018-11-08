@@ -1,0 +1,168 @@
+########################################################################
+module Oboe
+
+class ContextObject
+
+  def initialize()
+    @context = {}
+    # @context[Entity::REFERENT] = ref_desc 
+  end
+
+  def get_entity(entity)
+    if Entity::has_entity?(entity)
+      return @context[entity]
+    else
+      raise "! Unknown entity: #{entity}"
+    end
+  end
+
+  def get_referent() get_entity(Entity::REFERENT) end
+  def get_referrer() get_entity(Entity::REFERRER) end
+  def get_referring_entity() get_entity(Entity::REFERRING_ENTITY) end
+  def get_requester() get_entity(Entity::REQUESTER) end
+  def get_resolver() get_entity(Entity::RESOLVER) end
+  def get_service_type() get_entity(Entity::SERVICE_TYPE) end
+
+  def add_entity(entity, ent_desc)
+    if Entity::has_entity?(entity)
+      @context[entity] = (ent_desc) 
+    else
+      raise "! Unknown entity: #{entity}"
+    end
+  end
+
+  def remove_entity(entity)
+    if Entity::has_entity?(entity)
+      @context.delete(entity) if @context.include?(entity)
+    else
+      raise "! Unknown entity: #{entity}"
+    end
+  end
+
+  def add_referent(ent_desc)
+    add_entity(Entity::REFERENT, Entity.new(Entity::REFERENT, ent_desc))
+  end
+  def add_referrer(ent_desc)
+    add_entity(Entity::REFERRER, Entity.new(Entity::REFERRER, ent_desc))
+  end
+  def add_referring_entity(ent_desc)
+    add_entity(Entity::REFERRING_ENTITY, Entity.new(Entity::REFERRING_ENTITY, ent_desc))
+  end
+  def add_requester(ent_desc)
+    add_entity(Entity::REQUESTER, Entity.new(Entity::REQUESTER, ent_desc))
+  end
+  def add_resolver(ent_desc)
+    add_entity(Entity::RESOLVER, Entity.new(Entity::RESOLVER, ent_desc))
+  end
+  def add_service_type(ent_desc)
+    add_entity(Entity::SERVICE_TYPE, Entity.new(Entity::SERVICE_TYPE, ent_desc))
+  end
+
+  def remove_referent(ent_desc)
+    remove_entity(Entity::REFERENT, ent_desc)
+  end
+  def remove_referrer(ent_desc)
+    remove_entity(Entity::REFERRER, ent_desc)
+  end
+  def remove_referring_entity(ent_desc)
+    remove_entity(Entity::REFERRING_ENTITY, ent_desc)
+  end
+  def remove_requester(ent_desc)
+    remove_entity(Entity::REQUESTER, ent_desc)
+  end
+  def remove_resolver(ent_desc)
+    remove_entity(Entity::RESOLVER, ent_desc)
+  end
+  def remove_service_type(ent_desc)
+    remove_entity(Entity::SERVICE_TYPE, ent_desc)
+  end
+
+end
+
+class Entity
+
+  # Entity types
+  REFERENT = "referent"
+  REFERRER = "referrer"
+  REFERRING_ENTITY = "referring-entity"
+  REQUESTER = "requester"
+  RESOLVER = "resolver"
+  SERVICE_TYPE = "service-type"
+
+  @@entities = [ REFERENT, REFERRER, REFERRING_ENTITY, 
+                 REQUESTER, RESOLVER, SERVICE_TYPE ]
+
+  def initialize(entity, *desc)
+    @entity = []
+    @entity[entity].push(desc) 
+    self
+  end
+
+  def get_descriptor(desc)
+    if Descriptor::has_descriptor?(desc)
+      return @entity[desc]
+    else
+      raise "! Unknown descriptor type"
+    end
+    self
+  end
+
+  def add_descriptor(desc, val)
+    if Descriptor::has_descriptor?(desc)
+      @entity[desc] = [] unless @entity.include?(desc)
+      @entity[desc].push(val) 
+    else
+      raise "! Unknown descriptor type"
+    end
+    self
+  end
+
+  def get_id(val) get_descriptor(Descriptor::ID, val) end
+  def get_metadata(val) get_descriptor(Descriptor::METADATA, val) end
+  def get_metadata_ptr(val) get_descriptor(Descriptor::METADATA_PTR, val) end
+  def get_private_data(val) get_descriptor(Descriptor::PRIVATE_DATA, val) end
+
+  def add_id(val)
+    add_descriptor(Descriptor::ID, Descriptor.new(Descriptor::ID, val))
+  end
+  def add_metadata(val)
+    add_descriptor(Descriptor::METADATA, Descriptor.new(Descriptor::METADATA, val))
+  end
+  def add_metadata_ptr(val)
+    add_descriptor(Descriptor::METADATA_PTR, Descriptor.new(Descriptor::METADATA_PTR, val))
+  end
+  def add_private_data(val)
+    add_descriptor(Descriptor::PRIVATE_DATA, Descriptor.new(Descriptor::PRIVATE_DATA, val))
+  end
+
+  def Entity::has_entity?(entity)
+    return @@entities.include?(entity)
+  end
+
+end
+
+class Descriptor
+
+  # Descriptor types
+  ID = "id"
+  METADATA = "metadata"
+  METADATA_PTR = "metadata_ptr"
+  PRIVATE_DATA = "private_data"
+
+  @@descriptors = [ ID, METADATA, METADATA_PTR, PRIVATE_DATA ]
+
+  def initialize(desc, val)
+    @descriptor = val
+    self
+  end
+
+  def Descriptor::has_descriptor?(desc)
+    return @@descriptors.include?(desc)
+  end
+
+end
+
+end
+
+########################################################################
+__END__
