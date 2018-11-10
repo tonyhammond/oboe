@@ -4,8 +4,6 @@
   # oboe.lib.Descriptor - A Java class for manipulating OpenURL Descriptors
   #
   # Author - Tony Hammond <tony_hammond@harcourt.com>
-  # 
-  # Copyright (c) 2002 Elsevier Science Ltd. All rights reserved.
   #
   ########################################################################
 */
@@ -32,10 +30,10 @@ public class Descriptor {
   static private Hashtable _dict = new Hashtable();
 
   static {
-    _dict.put(ID, 1); 
-    _dict.put(METADATA, 1); 
-    _dict.put(METADATA_PTR, 1); 
-    _dict.put(PRIVATE_DATA, 1); 
+    _dict.put(ID, 1);
+    _dict.put(METADATA, 1);
+    _dict.put(METADATA_PTR, 1);
+    _dict.put(PRIVATE_DATA, 1);
   };
 
   /**

@@ -6,8 +6,6 @@
 #               NIDs, Key names, Genre values (v.0.1)
 #
 # Author - Tony Hammond <tony_hammond@harcourt.com>
-# 
-# Copyright (c) 2002 Elsevier Science Ltd. All rights reserved.
 #
 ########################################################################
 # Schemas (v.1.0)
@@ -251,7 +249,7 @@ registry.keys_01 = \
   registry.key_01.pages registry.key_01.artnum registry.key_01.sici \
   registry.key_01.bici registry.key_01.ssn registry.key_01.quarter \
   registry.key_01.date
- 
+
 # Origin-Description
 registry.key_01.sid     = sid
 
@@ -287,7 +285,7 @@ registry.key_01.bici    = bici
 registry.key_01.ssn     = ssn
 registry.key_01.quarter = quarter
 registry.key_01.date    = date
- 
+
 registry.val_01.genre = \
   registry.val_01.genre.journal registry.val_01.genre.book \
   registry.val_01.genre.conference registry.val_01.genre.article \

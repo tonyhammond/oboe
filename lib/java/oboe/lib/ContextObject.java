@@ -4,8 +4,6 @@
   # oboe.lib.ContextObject - A Java class for manipulating ContextObjects
   #
   # Author - Tony Hammond <tony_hammond@harcourt.com>
-  # 
-  # Copyright (c) 2002 Elsevier Science Ltd. All rights reserved.
   #
   ########################################################################
 */

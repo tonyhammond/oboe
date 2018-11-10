@@ -27,10 +27,10 @@ package Oboe::OpenURL;
   Author: tony_hammond\@harcourt.com
   Date:   June 22, 2002
 -->
-<context-container xmlns="http://www.niso.org/context-object" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<context-container xmlns="http://www.niso.org/context-object"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.niso.org/context-object
-    http://lib-www.lanl.gov/~herbertv/niso/context-container.xsd" 
+    http://lib-www.lanl.gov/~herbertv/niso/context-container.xsd"
     version="">
 EOT
 
@@ -170,7 +170,7 @@ EOT
     "quarter" => 1,
     "date" => 1,
   };
- 
+
 ########################################################################
 
   # Test format - "jarticle"
@@ -373,7 +373,7 @@ EOT
       $ctx_head =~  s/\>\Z/ timestamp=\"$$self{'hArgs'}{'adm_tim'}\"\>/m;
     }
     $ctxc_head =~ s/(version="")/version=\"$$self{'hArgs'}{'adm_ver'}\"/;
-  
+
     $s .= "$ctxc_head\n";
     $s .= "  $ctx_head\n";
     $s .= "  <!--\n  OpenURL v.1.0 Parameters";
@@ -509,9 +509,5 @@ Prints this OpenURL instance as an XML document.
 =head1 AUTHOR
 
 Tony Hammond <F<tony_hammond@harcourt.com>>
-
-=head1 COPYRIGHT
-
-Copyright (c) 2002 Elsevier Science Ltd. All rights reserved.
 
 =cut

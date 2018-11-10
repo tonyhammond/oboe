@@ -4,8 +4,6 @@
   # oboe.lib.Entity - A Java class for manipulating OpenURL Entities
   #
   # Author - Tony Hammond <tony_hammond@harcourt.com>
-  # 
-  # Copyright (c) 2002 Elsevier Science Ltd. All rights reserved.
   #
   ########################################################################
 */
@@ -34,12 +32,12 @@ public class Entity {
   static private Map _dict = new Hashmap();
 
   static {
-    _dict.put(REFERENT, 1); 
-    _dict.put(REFERRER, 1); 
-    _dict.put(REFERRING_ENTITY, 1); 
-    _dict.put(REQUESTER, 1); 
-    _dict.put(RESOLVER, 1); 
-    _dict.put(SERVICE_TYPE, 1); 
+    _dict.put(REFERENT, 1);
+    _dict.put(REFERRER, 1);
+    _dict.put(REFERRING_ENTITY, 1);
+    _dict.put(REQUESTER, 1);
+    _dict.put(RESOLVER, 1);
+    _dict.put(SERVICE_TYPE, 1);
   };
 
   /**

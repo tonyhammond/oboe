@@ -20,10 +20,10 @@ module Oboe
   Author: tony_hammond@harcourt.com
   Date:   June 22, 2002
 -->
-<context-container xmlns="http://www.niso.org/context-object" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<context-container xmlns="http://www.niso.org/context-object"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.niso.org/context-object
-    http://lib-www.lanl.gov/~herbertv/niso/context-container.xsd" 
+    http://lib-www.lanl.gov/~herbertv/niso/context-container.xsd"
     version="">
   EOT
 
@@ -163,7 +163,7 @@ module Oboe
     "quarter" => 1,
     "date" => 1,
   }
- 
+
 ########################################################################
 
   # Test format - "jarticle"
@@ -273,7 +273,7 @@ module Oboe
       @hArgs.each do |key, vals|
         if @@hKeys0_1.has_key?(key)
           nKeys += 1
-          byVal = true if @@hKeys0_1[key] > 0 
+          byVal = true if @@hKeys0_1[key] > 0
         end
       end
       if nKeys > 0
@@ -347,7 +347,7 @@ module Oboe
       @@ctx_head.sub! (/\>\Z/, " timestamp=\"#{@hArgs['adm_tim']}\"\>")
     end
     @@ctxc_head.sub!(/(version="")/, "version=\"#{@hArgs['adm_ver']}\"")
-  
+
     s << "#{@@xml_decl}\n"
     s << "#{@@ctxc_head}\n"
     s << "  #{@@ctx_head}\n"
@@ -429,7 +429,7 @@ module Oboe
     s = Net::HTTP.new(server, port)
     resp, data = s.get(path, nil)
     return data if resp.message == "OK"
-    
+
   end
 
 end

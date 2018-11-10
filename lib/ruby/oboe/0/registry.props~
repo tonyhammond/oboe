@@ -6,8 +6,6 @@
 #               NIDs, Key names, Genre values (v.0.1)
 #
 # Author - Tony Hammond <tony_hammond@harcourt.com>
-# 
-# Copyright (c) 2002 Elsevier Science Ltd. All rights reserved.
 #
 ########################################################################
 # Schemas (v.1.0)
@@ -262,7 +260,7 @@ registry.keys_01 = \
   registry.key_01.pages registry.key_01.artnum registry.key_01.sici \
   registry.key_01.bici registry.key_01.ssn registry.key_01.quarter \
   registry.key_01.date
- 
+
 # Origin-Description
 registry.key_01.sid     = sid
 
@@ -298,7 +296,7 @@ registry.key_01.bici    = bici
 registry.key_01.ssn     = ssn
 registry.key_01.quarter = quarter
 registry.key_01.date    = date
- 
+
 registry.genre_01 = \
   registry.genre_01.journal registry.genre_01.book \
   registry.genre_01.conference registry.genre_01.article \
@@ -319,7 +317,7 @@ registry.genre_01.journal.keys = \
   registry.key_01.volume registry.key_01.part registry.key_01.issue \
   registry.key_01.sici registry.key_01.ssn registry.key_01.quarter \
   registry.key_01.date
- 
+
 registry.genre_01.book.keys = \
   registry.key_01.aulast registry.key_01.aufirst \
   registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
@@ -327,7 +325,7 @@ registry.genre_01.book.keys = \
   registry.key_01.volume registry.key_01.part \
   registry.key_01.ssn registry.key_01.quarter \
   registry.key_01.date
- 
+
 registry.genre_01.conference.keys = \
   registry.key_01.aulast registry.key_01.aufirst \
   registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
@@ -336,7 +334,7 @@ registry.genre_01.conference.keys = \
   registry.key_01.volume registry.key_01.part registry.key_01.issue \
   registry.key_01.sici registry.key_01.ssn registry.key_01.quarter \
   registry.key_01.date
- 
+
 registry.genre_01.article.keys = \
   registry.key_01.aulast registry.key_01.aufirst \
   registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
@@ -346,14 +344,14 @@ registry.genre_01.article.keys = \
   registry.key_01.issue registry.key_01.spage registry.key_01.epage \
   registry.key_01.pages registry.key_01.artnum registry.key_01.sici \
   registry.key_01.ssn registry.key_01.quarter registry.key_01.date
- 
+
 registry.genre_01.preprint.keys = \
   registry.key_01.aulast registry.key_01.aufirst \
   registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
   registry.key_01.atitle registry.key_01.spage registry.key_01.epage \
   registry.key_01.pages registry.key_01.artnum registry.key_01.ssn \
   registry.key_01.quarter registry.key_01.date
- 
+
 registry.genre_01.proceeding.keys = \
   registry.key_01.aulast registry.key_01.aufirst \
   registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
@@ -364,7 +362,7 @@ registry.genre_01.proceeding.keys = \
   registry.key_01.pages registry.key_01.artnum registry.key_01.sici \
   registry.key_01.bici registry.key_01.ssn registry.key_01.quarter \
   registry.key_01.date
- 
+
 registry.genre_01.bookitem.keys = \
   registry.key_01.aulast registry.key_01.aufirst \
   registry.key_01.auinit registry.key_01.auinit1 registry.key_01.auinitm \
@@ -373,5 +371,5 @@ registry.genre_01.bookitem.keys = \
   registry.key_01.spage registry.key_01.epage registry.key_01.pages \
   registry.key_01.artnum registry.key_01.bici registry.key_01.ssn \
   registry.key_01.quarter registry.key_01.date
- 
+
 ########################################################################
