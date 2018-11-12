@@ -1,8 +1,0 @@
-# Example 3c
- 
-  ref_id = ori:pmid:11823195
-  req_id = uri:mailto:joe.doe@greatjob.org
-  rfe_id = pmid:11823195
-  rfr_id = dbid:ncbi.nlm.nih.gov:pubmed
-
-  adm_ver = Z39.00-00
